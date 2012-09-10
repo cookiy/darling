@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+    <meta charset="utf-8">
+    <title>oreally demo 过滤数组</title>
+  </head>
+      <script type="text/javascript">
+        function getvals(){
+          var elems = document.getElementById("picker").elements;
+          var elemArrary = new Object();
+          for(var i=0;i<elems.length;i++){
+              if(eme[i].type =="text")
+                elemArrary[elems[i].id]=elems[i].value;
+          }
+          checkvals(elemArrary);
+          return false;
+        }
+        function checkvals(){
+          var str = "";
+          for(var key in elemArrary){
+            str+=key+","+elemArrary[key]+"";
+          }
+          document.getElementById("result").innerHTML=str;
+        }  
+      </script>
+  <body>
+      <form id="picker" onsubmit="return getvals()">
+        <label>value1:</label><input type="text" id="first"/><br/>
+        <label>value2:</label><input type="text" id="second"/><br/>
+        <label>value3:</label><input type="text" id="third"/><br/>
+        <label>value4:</label><input type="text" id="four"/><br/>
+        <input type="submit" value="validate"/><br/>
+      </form>
+      <div id="result"></div>
+  </body>
+  </html>

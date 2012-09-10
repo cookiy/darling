@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+    <meta charset="utf-8">
+    <title>oreally demo 过滤数组</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      //过滤器
+      function removerChars(element,index,array){
+        return (element !== "**");
+      }
+      var charset = new Array('**','aa','b','cc');
+      if(!Array.prototype.filter){
+          Array.prototype.filter = function(fun/*,thisp*/){
+            var len = this.length >>> 0;
+            if(typeof fun !="function")throw new TypeError();
+            var res = new Array();
+            var thisp = arguments[1];
+            for(i=0;i<len;i++){
+                if(i in this){
+                    var val = this[i];
+                    if(fun.call(thisp,val,i,this)) res.push(val);
+                }
+            }
+            return res;
+          };
+      };
+      var newarry = charset.filter(removerChars);
+      console.log(newarry);
+      alert(newarry);
+      </script>
+  </body>
+  </html>
