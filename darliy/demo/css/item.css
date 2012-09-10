@@ -1,0 +1,19 @@
+          #ColorArea {
+                color: #000;
+                font-weight: bold;
+                margin: 0 0 10px;
+            }
+            
+            #ColorArea ul li {
+                width: 10px;
+                height: 10px;
+                padding: 2px;
+                border: 1px solid #333;
+                margin: 10px;
+                float: left;
+                list-style: none;
+            }
+h1{
+font-family:"Trebuchet MS";
+font-size:20px;
+}

@@ -1,0 +1,20 @@
+<html>
+<head><title>for循环作用域</title>
+  <style>
+  .full { border: 1px solid red; }
+</style>
+ <script>
+var sum = 0;function test(){alert(i);//undefined
+for(var i = 1; i <= 100; i ++)
+{
+  sum += i;
+}alert(i);//执行次数
+alert(sum);//1加到100}test();
+</script>
+</head>
+<body>
+<input onkeyup="value=value.replace(/[^\d]/g,'') " onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" ID="Text2" NAME="Text2">
+</body>
+</html>
+
+

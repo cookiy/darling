@@ -1,0 +1,10 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>event时间捕获-冒泡</title><script>window.onload = function(){	var oTr = document.getElementById("member").insertRow(2);	var aText = new Array();	aText[0] = document.createTextNode("111");	aText[1] = document.createTextNode("222");	aText[2] = document.createTextNode("333");	aText[3] = document.createTextNode("444");	aText[4] = document.createTextNode("555");	fot(var i = 0; i<aText.length; i++)		var oTd = oTr.insertCell(i);		oTd.appendChild(aText[i]);}</script>
+</head>
+
+<body onclick="alert('body');">
+<p onclick="alert('p');">p</p><div id="testdiv"></div><h2>title</h2><ul contentEditable = "true"><li>11</li><li>22</li><li>33</li><li>44</li><li>55</li></ul><textarea spellcheck="true"></textarea></body>
+</html>

@@ -1,0 +1,41 @@
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+<script type="text/javascript">
+var firsetime;
+window.onload = starttime;
+function starttime(){
+	firsetime = new Date();
+	document.getElementById('date').onclick = doEvent;
+};
+function doEvent(){
+
+	var stime = new Date();
+	alert((stime-firsetime)/1000);
+};
+if($('#result').length){
+	console.log(0);
+}
+else{
+	console.log(1);
+};
+ var ul = document.getElementById('parent');
+  var lis = ul.getElementsByTagName('li');
+  for(var i=0;i<lis.length;i++){
+       lis[i].onclick = function(){
+           alert(this.innerHTML);
+       }
+  } 
+</script>
+
+</body>
+<div id="date">111</div>
+<div id="result"></div>
+<div id="result1"></div>
+<ul id="parent">
+<li>a</li>
+<li>b</li>
+<li>c</li>
+</ul>
+</html>

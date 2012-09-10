@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>更改页面文字大小</title>
+</head>
+<body>
+<input type="button" value="变大" class="increaseFont"><br/>
+<input type="button" value="变小" class="decreaseFont"><br/>
+<input type="button" value="重置" class="resetFont">
+<p>从图可以看到腾讯爱看成功的照顾到了用户从隐喻设计中所得到的直觉性手势，只需向下拉，用户就可以关闭此界面。<br/>
+  直觉手势<br/>
+  从外观上看，评论界面都处于主界面之下，而动画效果都属于主界面向下拉伸，评论界面向上推至界面顶部。但是杂客的同样响应了用户的直觉性手势，只需在正文界面中，向下拖动，即可激活评论界面，这不得不算是在twitter客户端上的一种进步和超越。
+  总结<br/>
+  其实理解移动界面的隐喻设计，并不是一件非常困难的事情，因为这是一个化繁为简过程后的结果。而困难的是：设计师应该跳出传统的按钮，点击等交互操作的局限中来，更多了考虑到和现实生活的逻辑结合和用户的直觉手势的响应。<br/>
+  对于移动的软件应用来说，隐喻设计的初衷是为了解决导航缺失和物理力学反馈缺失的问题，但同样，这也是移动产品的竞争力的核心体现。如何帮助用户更快的理解你的软件应用，如何帮助用户更顺畅的使用你的软件应用。这是我们每个设计师，都应该去真实生活中去寻找的答案。</p>
+</body>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {  
+  // Reset the font size(back to default)  
+  var originalFontSize = $('html').css('font-size');  
+    $(".resetFont").click(function(){  
+    $('html').css('font-size', originalFontSize);  
+  });  
+  // Increase the font size(bigger font0  
+  $(".increaseFont").click(function(){  
+    var currentFontSize = $('html').css('font-size');  
+    var currentFontSizeNum = parseFloat(currentFontSize, 10);  
+    var newFontSize = currentFontSizeNum*1.2;  
+    $('html').css('font-size', newFontSize);  
+    return false;  
+  });  
+  // Decrease the font size(smaller font)  
+  $(".decreaseFont").click(function(){  
+    var currentFontSize = $('html').css('font-size');  
+    var currentFontSizeNum = parseFloat(currentFontSize, 10);  
+    var newFontSize = currentFontSizeNum*0.8;  
+    $('html').css('font-size', newFontSize);  
+    return false;  
+  });  
+});
+</script>
+</html>

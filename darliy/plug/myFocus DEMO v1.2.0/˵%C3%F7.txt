@@ -1,0 +1,4 @@
+本myFocus库的风格文件路径默认为path:'js/pattern/'，实际使用可能需要修改或下载官方myFocus库版本。
+
+详细使用说明：http://www.cosmissy.com/myfocus/usage.html
+

@@ -1,0 +1,21 @@
+<html>
+<head>
+<script>
+var array=[2.3,2.3,"a","b","b",true,true,true,false,1,0,undefined,null];   
+for(var i=0;i<array.length;i++){   
+    for(var j=i+1;j<array.length;j++){   
+       if(array[j]===array[i]) {   
+           array.splice(j,1);   
+           j--;   
+         }   
+          
+    }   
+}   
+alert(array);  
+</script>
+</head>
+<body>
+
+</body>
+</html>
+

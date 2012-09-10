@@ -1,0 +1,25 @@
+body{
+	background: #000 url(../images/bg1.jpg) center top no-repeat; color: #f30;
+}
+h1{
+font-family:"Trebuchet MS";
+font-size:20px;
+ color: #ccc;
+}
+.portlet_topper {
+    background: none repeat scroll 0 0 #fff;
+}
+.portlet_topper a {
+    color: #f30;
+    font-weight: bold;
+}
+#ColorArea {
+    background: none repeat scroll 0 0 #922c04;
+    border-color: #FFFFFF #666655 #666655 #FFFFFF;
+    border-style: solid;
+    border-width: 1px;
+    color: #FFFFFF;
+    font-weight: bold;
+    margin: 0 0 10px;
+    padding: 5px 10px;
+}

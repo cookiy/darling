@@ -1,0 +1,212 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+    "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=8">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <title></title>
+    <script type="text/javascript" charset="utf-8" src="editor_api.js">
+        paths = [
+            'editor.js',
+            'core/browser.js',
+            'core/utils.js',
+            'core/EventBase.js',
+            'core/dom/dom.js',
+            'core/dom/dtd.js',
+            'core/dom/domUtils.js',
+            'core/dom/Range.js',
+            'core/dom/Selection.js',
+            'core/Editor.js',
+            'commands/basestyle.js',
+            'commands/inserthtml.js',
+            'commands/justify.js',
+            'commands/font.js',
+            'commands/link.js',
+            'commands/removeformat.js',
+            'commands/blockquote.js',
+            'commands/list.js',
+
+            'commands/print.js',
+            'commands/preview.js',
+            'commands/selectall.js',
+            'commands/paragraph.js',
+            'commands/directionality.js',
+            'commands/horizontal.js',
+            'commands/time.js',
+            'commands/searchreplace.js',
+            'commands/inserthtml.js',
+            'commands/elementpath.js',
+            'commands/cleardoc.js',
+           
+            'plugins/undo/undo.js',
+            'plugins/paste/paste.js',
+            'plugins/source/source.js',
+            'plugins/shortcutkeys/shortcutkeys.js',
+            'plugins/enterkey/enterkey.js',
+            'plugins/keystrokes/keystrokes.js',
+            'plugins/fiximgclick/fiximgclick.js',
+//            'plugins/filter/filter.js',
+//            'plugins/filter/filter_word.js',
+            'plugins/autoheight/autoheight.js',
+            'plugins/serialize/serialize.js',
+            'plugins/video/video.js',
+            'plugins/table/table.js',
+            'ui/ui.js',
+            'ui/uiutils.js',
+            'ui/uibase.js',
+            'ui/separator.js',
+            'ui/mask.js',
+            'ui/popup.js',
+            'ui/colorpicker.js',
+            'ui/tablepicker.js',
+            'ui/stateful.js',
+            'ui/button.js',
+            'ui/splitbutton.js',
+            'ui/colorbutton.js',
+            'ui/tablebutton.js',
+            'ui/toolbar.js',
+            'ui/menu.js',
+            'ui/combox.js',
+            'ui/dialog.js',
+            'ui/menubutton.js',
+            'ui/editorui.js',
+            'ui/editor.js'
+        ];
+    </script>
+    <link rel="stylesheet" type="text/css" href="resources/DEFAULT.css"/>
+    <style type="text/css">
+        #editor {
+            width: 843px;
+        }
+        /* for IE6 fixed */
+        body {
+            background: url('about:blank') fixed;
+        }
+    </style>
+</head>
+<body>
+<h1>编辑器UI示例</h1>
+<div id="editor">
+</div>
+<script type="text/javascript">
+    var serializeConfig = function (){
+        var blockAtt = {style:1,align:1,dir:1};
+        var blockDtd = {div:1,p:1,span:1,strong:1,b:1,em:1,i:1,u:1,img:1,embed:1,table:1,ul:1,ol:1,blockquote:1,$:blockAtt};
+        var inlineDtd = {span:1,strong:1,b:1,em:1,i:1,u:1,img:1,$:{}};
+        var X = baidu.editor.utils.extend;
+
+        return {
+            blackList: {style:1,script:1,link:1,object:1,applet:1,input:1,meta:1,base:1,button:1,select:1,textarea:1,iframe:1,'#comment':1}
+//            whiteList: {
+//                '#document-fragment': blockDtd,
+//                div: X(blockDtd, {$:{style:1,align:1,dir:1}}),
+//                span: X(inlineDtd, {$:{style:1}}),
+//                strong: inlineDtd,
+//                em: inlineDtd,
+//                b: inlineDtd,
+//                i: inlineDtd,
+//                u: inlineDtd,
+//                table: {tr:1,tbody:1,thead:1,tfoot:1, $:{style:1,cellpadding:1,cellspacing:1,border:1,bgcolor:1}},
+//                tbody: {tr:1, $:{style:1,bgcolor:1,cellpadding:1,cellspacing:1}},
+//                thead: {tr:1, $:{style:1,bgcolor:1,cellpadding:1,cellspacing:1}},
+//                tfoot: {tr:1, $:{style:1,bgcolor:1,cellpadding:1,cellspacing:1}},
+//                td: X(blockDtd,{$:X(blockAtt,{bgcolor:1,rowspan:1,colspan:1})}),
+//                th: X(blockDtd,{$:X(blockAtt,{bgcolor:1,rowspan:1,colspan:1})}),
+//                ul: {li:1,$:{style:1}},
+//                ol: {li:1,$:{style:1}},
+//                li: blockDtd,
+//                blockquote: blockDtd,
+//                img: {$:{style:1,width:1,height:1,src:1,alt:1,title:1}}
+//            }
+        };
+    }();
+    var editor = new baidu.editor.ui.Editor({
+        id: 'editor',
+        initialContent: '欢迎使用<a href="http://ueditor.baidu.com/">UEditor</a>!',
+        initialStyle :'.selectTdClass{background-color:#3399FF !important}',
+        minFrameHeight: 320,
+//        ui: {
+//            toolbars: [
+//                ['Bold', 'Italic', 'Underline']
+//            ]
+//        }
+        // 粘贴过滤的配置
+        serialize: serializeConfig
+    });
+    // 单独的浮动工具条代码，这个不太好做成通用功能
+    (function (){
+        var floating = false;
+        var MIN_HEIGHT = 0;
+        var bakCssText;
+        var placeHolder = document.createElement('div');
+        function setFloating(delta){
+            var toolbarBox = editor.ui.getDom('toolbarbox');
+            placeHolder.style.height = toolbarBox.offsetHeight + 'px';
+            bakCssText = toolbarBox.style.cssText;
+            toolbarBox.style.width = toolbarBox.offsetWidth + 'px';
+            toolbarBox.parentNode.insertBefore(placeHolder, toolbarBox);
+            if (baidu.editor.browser.ie && baidu.editor.browser.version <= 6) {
+                toolbarBox.style.position = 'absolute';
+                toolbarBox.style.setExpression('top', 'eval("((document.documentElement||document.body).scrollTop-'+ delta +')+\'px\'")');
+                toolbarBox.style.zIndex = '1';
+            } else {
+                toolbarBox.style.position = 'fixed';
+                toolbarBox.style.zIndex = '1';
+                toolbarBox.style.top = '0';
+            }
+            floating = true;
+        }
+        function unsetFloating(){
+            var toolbarBox = editor.ui.getDom('toolbarbox');
+            placeHolder.parentNode.removeChild(placeHolder);
+            if (baidu.editor.browser.ie && baidu.editor.browser.version <= 6) {
+                toolbarBox.style.removeExpression('top');
+            }
+            toolbarBox.style.cssText = bakCssText;
+            floating = false;
+        }
+        function updateFloating(){
+            var rect = baidu.editor.ui.uiUtils.getClientRect(
+                    editor.ui.getDom('toolbarbox'));
+            var rect2 = baidu.editor.ui.uiUtils.getClientRect(
+                    editor.ui.getDom('iframeholder'));
+            if (!floating) {
+                if (rect.top < 0 && rect2.bottom > rect.height + MIN_HEIGHT) {
+                    var delta = (document.documentElement.scrollTop || document.body.scrollTop) + rect.top;
+                    setFloating(delta);
+                }
+            } else {
+                var rect1 = baidu.editor.ui.uiUtils.getClientRect(placeHolder);
+                if (rect.top < rect1.top || rect.bottom + MIN_HEIGHT > rect2.bottom) {
+                    unsetFloating();
+                }
+            }
+        }
+        editor.addListener('autoheightchanged', function (t, enabled){
+            if (enabled) {
+                baidu.editor.dom.domUtils.on(window, 'scroll', updateFloating);
+                baidu.editor.dom.domUtils.on(window, 'resize', updateFloating);
+                editor.addListener('keydown', updateFloating);
+            } else {
+                baidu.editor.dom.domUtils.un(window, 'scroll', updateFloating);
+                baidu.editor.dom.domUtils.un(window, 'resize', updateFloating);
+                editor.removeListener('keydown', updateFloating);
+            }
+        });
+        editor.addListener('beforefullscreenchange', function (t, enabled){
+            if (enabled) {
+                if (floating) {
+                    unsetFloating();
+                }
+            }
+        });
+        editor.addListener('fullscreenchanged', function (t, enabled){
+            if (!enabled) {
+                updateFloating();
+            }
+        });
+    })();
+    editor.render('editor');
+</script>
+</body>
+</html>

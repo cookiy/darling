@@ -1,0 +1,124 @@
+<html>
+
+<head>
+
+<script type="text/javascript">
+var a=['a','b','c','d','e'];
+var b=['a','b','f','g','h'];
+var arr1 = intersection(a,b);
+alert(arr1);
+var arr2 = chaji(a,b);
+alert(arr2);
+var arr3 = inANotInB(a,b);
+alert(arr3);
+//a,b中重复的部分
+function intersection(a,b){
+  var obj = new Object();
+  for(var i =0,len = a.length;i<len;i++){
+    obj[a[i]] = a[i];
+  }
+  for(var i =0,len = b.length;i<len;i++){
+    obj[b[i]] = b[i];
+  }
+  var arr = new Array();
+  var i = 0; 
+  for(var per in obj){
+    arr[i++] = obj[per];
+  }
+  return arr;
+}
+//a与b不重复的部分
+function chaji(a,b){
+   var obj = new Object();
+  for(var i =0,len = a.length;i<len;i++){
+    obj[a[i]] = 1;
+  }
+  for(var i =0,len = b.length;i<len;i++){
+    obj[b[i]] = obj[b[i]]?2:1;
+  }
+  var arr = new Array();
+  var i = 0; 
+  for(var per in obj){
+    if(obj[per] == 1){
+      arr[i++] = per;
+    }
+  }
+  return arr;
+}
+
+//b与a不重复的部分
+function inANotInB(a,b){
+    var obj = new Object();
+    for(var i =0,len = a.length;i<len;i++){
+        obj[a[i]] = 1;
+    }
+    for(var i =0,len = b.length;i<len;i++){
+        if(obj.hasOwnProperty(b[i])){
+            obj[b[i]] = undefined;
+        }
+    }
+    var arr = new Array();
+    var i = 0; 
+    for(var per in obj){
+        if(obj[per]){
+            arr[i++] = per;
+        }
+    }
+    return arr;
+}
+
+</script>
+<script type="text/javascript">
+  function urlParser(s){
+        //+++++++++++答题区域+++++++++++
+        //+++++++++++答题区域+++++++++++
+        var str=s.split("#")[1];//取到#以后的内容
+        var jsonStr="";//定义一字符串
+        if(str.indexOf("?")!=-1){//判断是否有？如果有则前面的内容
+            var textStr=str.split("?");//取到？前面的内容
+            if(textStr[0].indexOf("/")!=-1){//判断是否有/
+                for(var i=0;i<textStr[0].split("/").length-1;i++){
+                    jsonStr+="'"+textStr[0].split("/")[i]+"',";//取到/之间的内容
+                }
+            }else{
+                jsonStr+="'"+textStr[0]+"',";//如果没有/则直接取内容
+            }
+            jsonStr="["+jsonStr+"{'type':'"+textStr[1].split("&")[0].split("=")[1]+"','page_size':'"+textStr[1].split("&")[1].split("=")[1]+"'}]";//拼接字符串
+        }else{//判断是否有？如果没有则取#后面的内容
+            jsonStr="[{'type':'"+str.split("&")[0].split("=")[1]+"','page_size:'"+str.split("&")[1].split("=")[1]+"'}]";//拼接字符串
+        }
+    return jsonStr;
+        //+++++++++++答题结束+++++++++++
+}
+
+
+try{
+        var url1 = "http://www.abc.com/m/s/#page/2/?type=latest_videos&page_size=20";
+        var url2 = "http://www.abc.com/m/s/#type=latest_videos&page_size=20";
+        var url3 = "http://www.abc.com/m/s/#page?type=latest_videos&page_size=20";
+
+        console.group();
+        console.info( urlParser(url1) );
+        console.info( urlParser(url2) );
+        console.info( urlParser(url3) );
+        console.groupEnd();
+        /*------[执行结果]------
+
+        ["page", "2", { "type": "latest_videos", "page_size": 20 }]
+        [{ "type": "latest_videos", "page_size": 20 }]
+        ["page", { "type": "latest_videos", "page_size": 20 }]
+        
+        ------------------*/
+        
+}catch(e){
+        console.error("执行出错，错误信息: " + e);
+}
+
+</script>
+</head>
+
+<body>
+
+</body>
+
+</html> 

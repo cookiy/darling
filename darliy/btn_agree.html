@@ -1,0 +1,71 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>同意条款</title>
+<style type="text/css">
+.box1{
+	width: 200px;
+	height: 200px;
+	background: #f30;
+}
+
+</style>
+ <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+ <script language="javascript">
+ document.form1.Submit.disabled=true;
+ var speed = 1000;
+ var wait = 10;
+ function updateinfo(){
+ 	if(wait == 0){
+ 		document.form1.Submit.value = "我同意";
+ 		document.form1.Submit.disabled = false;
+ 		}
+ 	else{
+ 		document.form1.Submit.value = "阅读条款"+wait;
+ 		wait--;
+ 		window.setTimeout("updateinfo()",speed);
+ 		}
+ }
+ updateinfo();
+ </script>
+ <script type="text/javascript">
+
+        $(function(){
+
+            function windowalign(){
+
+                var bodyheight = $(document).height(),  //整个网页的宽度 如果这里是window ie6and ie7 得到的是负数
+
+                    bodywidth = $(window).width(),  //整个网页的高度 如果这里是document ie7不会水平居中
+
+                    wrapwidth = $(".box1").width(),  //要垂直居中的内容的宽度
+
+                    wrapheight = $(".box1").height();  //要垂直居中的内容的高度度
+
+                    postop = (bodyheight-wrapheight)/2;  // 获取顶部的position
+
+                    posleft = (bodywidth-wrapwidth)/2;  // 获取左边部的position
+
+                    $(".box1").css({"left":posleft+"px","top":postop+"px"});  // 设置position
+
+            }
+
+            windowalign();
+
+            $(window).resize(function(){  // 当调整窗口的时候动态修正位置
+
+                windowalign();
+
+            });
+
+        })
+
+ </script>
+</head>
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <input type="submit" name="Submit" value="同意" />
+</form>
+<div class="box1">111</div>
+</body>
+</html>

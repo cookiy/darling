@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+    <title>MyHtml.html</title>
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=GBK">
+   </head>
+<script type="text/javascript">
+var dirtyWord = new Array( 5 );
+
+dirtyWord[0] = "江泽民";
+dirtyWord[1] = "温家宝";
+dirtyWord[2] = "干你";
+dirtyWord[3] = "肛门";
+dirtyWord[4] = "薄熙来";
+// -------------- 全局变量，用来判断文本域中是否包含脏词,默认为false,即不包含脏词-------
+var isDirty = false;
+/*
+* 提交表单的主方法
+* 在提交表单的时候对内容进行过滤并在文本域显示过滤后的内容
+*/
+function submitForm(){
+var messageTextArea = document.getElementById( "message" );//得到文本域对象
+var messageValue_new = filterWord( messageTextArea.value );//调用过滤内容的主函数，并返回过滤后的内容
+messageTextArea.innerHTML = messageValue_new; //重新填写文本域的内容
+if(isDirty){
+if(confirm("你的留言中含有不恰当的词语,系统已自动为你修改,是否继续提交?")){
+    document.getElementById("message_board").submit(); //如果提示后用户单击了确定，则继续提交表单
+}
+}else{
+     return false; //不含有敏感词语，直接提交表单
+}
+}
+
+/*
+* 对传进来的messageValue过滤并返回新内容
+* messageValue --- 要过滤的语句
+*/
+function filterWord( messageValue ){
+// 根据文本域的id获取文本域对象内容
+var messageValue_new = messageValue;
+for( var i = 0 ; i < dirtyWord.length; i ++ ){
+    messageValue_new = filterOneWord( messageValue_new, dirtyWord[i] ); //过滤单个词语并返回过滤后的内容
+}
+return messageValue_new;
+}
+
+/*
+* 这个函数用来过滤单个词语, 如果messageValue中含有oneDirtyWord, 则用"^_^"替换这个oneDirtyWord
+* messageValue --- 要过滤的语句
+* oneDirtyWord --- 要过滤的单词
+*/
+function filterOneWord( messageValue, oneDirtyWord ){
+var wordIndex = messageValue.lastIndexOf( oneDirtyWord );// 得到messageValue所包含的oneDirtyWord的位置, 如果不包含则返回 - 1
+var messageValue_new = messageValue;
+if(wordIndex != -1){
+    isDirty = true; //修改
+}
+while( wordIndex != - 1 ){//循环判断并替换所有的oneDirtyWord
+    messageValue_new = messageValue_new.replace( oneDirtyWord, "*" );
+    wordIndex = messageValue_new.lastIndexOf( oneDirtyWord );
+}
+return messageValue_new;
+}
+</script>
+
+<body>
+    <form name="message_board" id="message_board" action="http://baidu.com"> 
+        <textarea name="message"  id="message"cols="50" rows="10">
+现代诗----飘逸的我
+江泽民我走了，正如温家宝的来钟；
+我挥一挥衣袖诗，不带走一片云彩。
+干你肛门
+薄熙来
+飘逸的我
+阿奇纳
+飘逸的我
+塞思黑
+飘逸的我
+        </textarea><br>
+        <input type="button" value="提交留言" id="submitMessage" onclick="submitForm()">
+    </form>
+</body>
+</html>

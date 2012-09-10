@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>构建js函数方式</title>
+<script src="js/jquery.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="test">s    <div></div>    </div>
+<script>alert(document.getElementById("test").childNodes.length);</script>
+<script>document.createElement("div");document.createTextNode("textnode"); </script>
+<script>function b(x, y, a) {
+arguments[2] = 10;
+alert(a);
+}
+b(1, 2, 3);
+</script>
+<script>
+var n = 10;
+var oldarr=[5,1,6,3,7,8,10];
+var lostarr=[];
+for(var i=0, i<n-3,i++){
+	newArr[oldArr[i]] = 1;
+	}
+for(var j = 0; j < newArr.length; j++){
+if(!newArr[j]) {
+        lostArr.push(j);
+    }
+};
+lostArr.shift(0);
+alert(lostArr);
+</script>
+</body>
+</html>

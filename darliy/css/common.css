@@ -1,0 +1,28 @@
+/* CSS Document */
+/* author:cookiy* /
+/* time:2011-03-28 */
+/* apply:css reset */
+html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,blockquote,th,td,ins,img,textarea{margin: 0px;padding: 0px;word-wrap:break-word;}
+table{border-collapse:collapse;border-spacing:0;}
+fieldset,img{border:0;}
+address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}
+ol,ul,li{list-style:none;}
+caption,th{text-align:left;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
+a{cursor:pointer; color:#fff; text-decoration:none;}
+a:hover{ color:#fff; text-decoration:none;}
+.fl{ float: left;}
+.fr{ float: right;}
+.clear:after{content:'content';clear:both;display:block;visibility: hidden;height:0px;}
+.clear{zoom:1}/*清除float*/
+.ClearB{clear: both;}
+.fl{ float:left;}
+.fr{ float:right; padding-right: 5px;}
+/*解决ie6的fixed问题闪动bug*/
+.Ie6Fix{position: fixed;bottom:0px;width:auto;
+	_position:absolute;
+	_top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)||0)));
+}
+/*解决ie6背景不能移动的问题*/
+*html,*html body{_background-image:url(about:blank);_background-attachment:fixed;}
+/*css reset*/

@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>backbone-router-view-render</title>
+</head>
+<body>
+    <a href="#/posts/120">Post 120</a>
+<a href="#/download/user/images/hey.gif">download gif</a>
+<a href="#/dashboard/graph">Load Route/Action View</a>
+<ul></ul>
+</body>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+<script src="http://ajax.cdnjs.com/ajax/libs/underscore.js/1.1.4/underscore-min.js"></script>
+<script src="http://documentcloud.github.com/backbone/backbone-min.js"></script>
+<script>
+    (function ($) {
+        var AppView = Backbone.View.extend({
+             el:$('ul'),
+             getPost: function(id) {
+                $(this.el).empty().append("<li>xxxxx</li>");
+                this.router.navigate('/posts/:id',true);
+
+            },
+            defaultRoute : function(actions){
+                $(this.el).empty().append("<li>zzzz</li>");
+                this.router.navigate('*actions',true);
+            },
+            downloadFile: function( path ){ 
+                $(this.el).empty().append("<li>"+path+"</li>");
+                this.router.navigate('/download/*path',true);
+            },
+            loadView: function( route, action ){ 
+                $(this.el).empty().append("<li>"+route+"_"+action+"</li>");
+                this.router.navigate('/:route/:action',true);
+            }
+        });
+        var app_view = new AppView();
+        
+    })(jQuery);
+</script> 
+</html>

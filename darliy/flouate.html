@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>响应式布局</title>
+<style type="text/css">
+.flex_wrap{
+	height:100%;
+	display: box;  
+	display: -moz-box;  
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-moz-box-orient: vertical;
+	box-orient: vertical;
+}
+.flex_bd{
+	box-flex: 1;
+	-moz-box-flex: 1; 
+	-webkit-box-flex:1;
+	background:#E7E7E7;
+	overflow-y:auto;
+}
+.flex_hd{
+	background:#16364C;
+	height:30px;
+	line-height:30px;
+	text-align:center;
+	color:#FFF;
+	font-weight:700;
+	font-family:14px;
+}
+.flex_ft{
+	background:green;
+	height:30px;
+	line-height:30px;
+	text-align:right;
+}
+</style>
+</head>
+<body>
+<div class="flex_wrap">
+	<div class="flex_hd">前端观察</div>
+	<div class="flex_bd">
+		<p>这里是主内容区</p>
+		<p>这里是主内容区</p>
+	</div>
+	<div class="flex_ft">
+		<a href="http://www.qianduan.net/about" title="关于我们">关于我们</a>
+		<a href="http://www.qianduan.net/copyright" title="版权声明">版权声明</a>
+		<a href="http://www.qianduan.net/sitemap" title="网站地图">网站地图</a>
+	</div>
+</div>
+</body>
+</html>

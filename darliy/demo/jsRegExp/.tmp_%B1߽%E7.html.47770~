@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+ <HEAD>
+  <TITLE> New Document </TITLE>
+  <META NAME="Generator" CONTENT="EditPlus">
+  <META NAME="Author" CONTENT="">
+  <META NAME="Keywords" CONTENT="">
+  <META NAME="Description" CONTENT="">
+ </HEAD>
+
+ <BODY>
+   <script language="JavaScript">
+  <!--
+	/*������ʽ  �߽�
+	^     �п�ͷ
+	$     �н�β
+	\b    ���ʵı߽�
+	\B    �ǵ��ʵı߽�
+	*/
+
+      var sToMatch = "Important word is the last one.";
+      var reLastWord = /(\w+)\.$/; 
+	  reLastWord.test(sToMatch);
+	  alert(RegExp.$1);  //one
+
+    /*
+    ���������һ�����ʣ���Ҫ��ֻ��������β�������ʹ����Ԫ��� ($)����ʾ��
+	*/
+
+
+
+      var sToMatch = "Important word is the last one.";
+      var reLastWord = /^(\w+)/; 
+	  reLastWord.test(sToMatch);
+	  alert(RegExp.$1);  //Important
+
+    /*
+    ����������У�������ʽ��������ʼλ�ú��һ�����������ַ���������ǵ����ַ�
+	ƥ��ֹͣ������ Important�� �������Ҳ�����õ��ʱ߽�ʵ�֡�
+	*/
+   
+      var sToMatch = "Important word is the last one.";
+      var reLastWord = /^(.+?)\b/; 
+	  reLastWord.test(sToMatch);
+	  alert(RegExp.$1);  //Important
+    
+    /*
+    ���������ʽ�ö����������ƶ��ڵ��ʱ߽�֮ǰ���Գ����κ��ַ��ҿ��Գ���һ�λ�
+	��Σ����ʹ��̰�������ʣ����ʽ��ƥ������ַ���
+	*/
+
+    var data = " First second thind fourth fifth sixth ";  
+	var reCat = /\b(\S+?)\b/g;   
+	var arrdata = data.match(reCat);
+
+	for (var i = 0; i < arrdata.length; i++)
+	{
+		alert(arrdata[i]);
+	}   
+
+	/*
+    ʹ�õ��ʱ߽���Է���ش��ַ��г�ȡ���ʡ�
+	*/
+  //-->
+  </script>
+ </BODY>
+</HTML>

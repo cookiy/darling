@@ -1,0 +1,35 @@
+<html>
+<head>
+<script language=”JavaScript” type=”text/javascript”>
+window.onload = function(){
+function Dog(name){        this.name = name;    }
+Dog.prototype = {
+constructor : Dog,
+wow: function(){
+alert(‘wow’);
+},
+yelp: function(){
+return this.wow();
+}
+}
+function CrazyDog(name){        this.name = name;    }
+CrazyDog.prototype = new Dog();
+CrazyDog.prototype.madYelp = function(){
+var _self = this;
+setInterval(function(){
+return _self.wow();
+}, 2000);
+}
+var xiaoXian = new Dog(“xiaoXian”);
+var xiaoXianBtn = document.getElementById(“xiaoXianBtn”);
+xiaoXianBtn.onclick = function(){        xiaoXian.wow();    }
+var xiaoMang = new CrazyDog(“xiaoMang”);
+var xiaoMangBtn = document.getElementById(“xiaoMangBtn”);
+xiaoMangBtn.onclick = function(){        xiaoMang.madYelp();    }
+}
+</script>
+</head>
+<body>
+<div id="xiaoXianBtn">11s</div>
+</body>
+</html>

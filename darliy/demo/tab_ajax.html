@@ -1,0 +1,354 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>ajax左右切换 </title>
+        <style type="text/css">
+            /* Reset style */ * {
+                margin: 0;
+                padding: 0;
+                word-break: break-all;
+            }
+            
+            body {
+                background: #FFF;
+                color: #333;
+                font: 12px / 1.6em Helvetica, Arial, sans-serif;
+            }
+            
+            h1, h2, h3, h4, h5, h6 {
+                font-size: 1em;
+            }
+            
+            a {
+                color: #039;
+                text-decoration: none;
+            }
+            
+            a:hover {
+                text-decoration: underline;
+            }
+            
+            ul, li {
+                list-style: none;
+            }
+            
+            fieldset, img {
+                border: none;
+            }
+            
+            em, strong, cite, th {
+                font-style: normal;
+                font-weight: normal;
+            }
+            
+            #change {
+                position: relative;
+                top: 20px;
+                left: 60px
+            }
+            
+            /* Hot_ranks style */
+            #hot_ranks {
+                position: relative;
+                width: 190px;
+                overflow: hidden;
+                margin: 50px;
+                border: 1px solid #E0E0E0;
+                background: #F6F8F8;
+            }
+            
+            #hot_ranks h3 {
+                padding: 8px 8px 6px 8px;
+                font-size: 14px;
+            }
+            
+            #hot_ranks .hot_ranks_list {
+                padding-bottom: 6px;
+            }
+            
+            #hot_ranks .normal {
+                display: none;
+            }
+            
+            #hot_ranks .current {
+                display: block;
+            }
+            
+            #hot_ranks ul li {
+                width: 95%;
+                height: 21px;
+                overflow: hidden;
+                margin: 0 auto;
+                line-height: 20px;
+            }
+            
+            #hot_ranks ul li em {
+                padding: 0 1px 0 3px;
+            }
+            
+            #ranks_change_bar {
+                position: absolute;
+                top: 8px;
+                right: 2px;
+            }
+            
+            #ranks_change_bar a {
+                display: block;
+                float: left;
+                width: 27px;
+                height: 13px;
+                overflow: hidden;
+                margin: 0 2px;
+                background: url(http://www.lanrentuku.com/images/uppic/200808190816440.gif) no-repeat;
+                text-indent: -9999px;
+                cursor: pointer;
+            }
+            
+            #ranks_change_bar #previous {
+                background-position: 0 0;
+            }
+            
+            #ranks_change_bar #next {
+                background-position: -27px 0;
+            }
+            
+        </style>
+        <script src="http://www.lanrentuku.com/js/jquery-1.2.6.pack.js" type="text/javascript">
+        </script>
+        <script language="javascript">
+            $(function(){
+                /** 下拉框效果选项设置  start **/
+                var changeIndex = 1;
+                $('#change').change(function(){
+                    changeIndex = $("#change").val();
+                })
+                /** 下拉框效果选项设置  end  **/
+                
+                var $obj = $('#hot_ranks ul');
+                var len = $obj.length;
+                var i = 0;
+                $("#next").click(function(){
+                    i++;
+                    if (i == len) {
+                        i = 0;
+                    }
+                    if (changeIndex == 1) {//  这里是根据下拉框的值，来执行相应的效果。
+                        $obj.stop(true, true).hide().eq(i).show();
+                    }
+                    else 
+                        if (changeIndex == 2) {
+                            $obj.stop(true, true).hide().eq(i).slideDown(400);	
+                        }
+                        else 
+                            if (changeIndex == 3) {
+                                $obj.stop(true, true).hide().eq(i).fadeIn(600);
+                            }
+                    return false;
+                });
+                $("#previous").click(function(){
+                    i--;
+                    if (i == -1) {
+                        i = len - 1;
+                    }
+                    if (changeIndex == 1) {
+                        $obj.stop(true, true).hide().eq(i).show();
+                    }
+                    else 
+                        if (changeIndex == 2) {
+                            $obj.stop(true, true).hide().eq(i).slideDown(400);
+                        }
+                        else 
+                            if (changeIndex == 3) {
+                                $obj.stop(true, true).hide().eq(i).fadeIn(600);
+                            }
+                    return false;
+                });
+                
+                //滑入div 停止动画，滑出开始动画.
+                $('#hot_ranks').hover(function(){
+                    if (MyTime) {
+                        clearInterval(MyTime);
+                    }
+                }, function(){
+                    MyTime = setInterval(function(){
+                        $("#next").trigger("click");
+                    }, 2000);
+                })
+                
+                //每2秒，自动切换。触发".next"的click事件.
+                var MyTime = setInterval(function(){
+                    $("#next").trigger("click");
+                }, 2000);
+            })
+            
+            /*
+            
+             stop(true,true):
+            
+             第一个true是清除队列.
+            
+             第二个true是说直接跳转到动画结束的状态.
+            
+             stop(true,true).hide():
+            
+             就是说，停止当前正在进行的动画，以及队列中等待的动画，
+            
+             并且直接将属性设置成动画结束时的状态
+            
+             */
+            
+        </script>
+    </head>
+    <body>
+        效果切换：
+        <select id="change">
+            <option value="1">普通效果</option>
+            <option value="2">窗帘效果</option>
+            <option value="3">渐变效果</option>
+        </select>
+        <div id="hot_ranks">
+            <h3>站点价值排行</h3>
+            <ul class="current">
+                <li>
+                    <em>1</em>
+                    <a href="#">首支北京奥运比赛用枪入境</a>
+                </li>
+                <li>
+                    <em>2</em>
+                    <a href="#">“最稳金牌”落选奥运阵容</a>
+                </li>
+                <li>
+                    <em>3</em>
+                    <a href="#">微软否认盖茨为看奥运租房</a>
+                </li>
+                <li>
+                    <em>4</em>
+                    <a href="#">金晶坐飞机被蛮横夫妇欺侮</a>
+                </li>
+                <li>
+                    <em>5</em>
+                    <a href="#">俄美女展示奥运服 奥运兵马俑亮相京城装</a>
+                </li>
+                <li>
+                    <em>6</em>
+                    <a href="#">五部奥运题材电影出炉 志愿者微笑迎奥运</a>
+                </li>
+                <li>
+                    <em>7</em>
+                    <a href="#">奥运志愿者不乏绝世佳丽 清纯奥运引导员</a>
+                </li>
+                <li>
+                    <em>8</em>
+                    <a href="#">奥运饭店正式运行 国际奥委会各部门入驻</a>
+                </li>
+            </ul>
+            <ul class="normal">
+                <li>
+                    <em>9</em>
+                    <a href="#">奥运会中国最稳的十个冠军</a>
+                </li>
+                <li>
+                    <em>10</em>
+                    <a href="#">女大学生怎么成了悲惨“卡奴”</a>
+                </li>
+                <li>
+                    <em>11</em>
+                    <a href="#">80岁老母竟被儿女逼得有家难回</a>
+                </li>
+                <li>
+                    <em>12</em>
+                    <a href="#">日本街头清新美女如此混搭(图)</a>
+                </li>
+                <li>
+                    <em>13</em>
+                    <a href="#">视频：人眼永远看不到的真相！</a>
+                </li>
+                <li>
+                    <em>14</em>
+                    <a href="#">87版红楼梦那些难忘笑靥(组图)</a>
+                </li>
+                <li>
+                    <em>15</em>
+                    <a href="#">美女股神：散户就是被宠坏的人</a>
+                </li>
+                <li>
+                    <em>16</em>
+                    <a href="#">我的80后老婆从绵羊变成大灰狼</a>
+                </li>
+            </ul>
+            <ul class="normal">
+                <li>
+                    <em>17</em>
+                    <a href="#">马自达6轿跑全系让利2万元 新威驰全系优惠8000</a>
+                </li>
+                <li>
+                    <em>18</em>
+                    <a href="#">“[降价]致胜全系让2.8万元  海马3现车优惠1万元</a>
+                </li>
+                <li>
+                    <em>19</em>
+                    <a href="#">桑塔纳志俊优惠3000元 林荫大道优惠3万提销量</a>
+                </li>
+                <li>
+                    <em>20</em>
+                    <a href="#">金晶坐飞机被蛮横夫妇欺侮</a>
+                </li>
+                <li>
+                    <em>21</em>
+                    <a href="#">俄美女展示奥运服 奥运兵马俑亮相京城装</a>
+                </li>
+                <li>
+                    <em>22</em>
+                    <a href="#"> [闲聊]路拍亚洲最长悍马 强人用遥控车画大黄蜂</a>
+                </li>
+                <li>
+                    <em>23</em>
+                    <a href="#">奥运志愿者不乏绝世佳丽 清纯奥运引导员</a>
+                </li>
+                <li>
+                    <em>24</em>
+                    <a href="#">大开眼界的路虎悬挂车展 “最有趣”车名排行榜</a>
+                </li>
+            </ul>
+            <ul class="normal">
+                <li>
+                    <em>25</em>
+                    <a href="#">日本街头清新美女如此混</a>
+                </li>
+                <li>
+                    <em>26</em>
+                    <a href="#">女大学生怎么成了悲惨“卡奴”</a>
+                </li>
+                <li>
+                    <em>27</em>
+                    <a href="#">美女股神：散户就是被宠坏的人</a>
+                </li>
+                <li>
+                    <em>28</em>
+                    <a href="#">搭奥运会中国最稳的十个冠军</a>
+                </li>
+                <li>
+                    <em>29</em>
+                    <a href="#">视频：人眼永远看不到的真相！</a>
+                </li>
+                <li>
+                    <em>30</em>
+                    <a href="#">87版红楼梦那些难忘笑靥(组图)</a>
+                </li>
+                <li>
+                    <em>31</em>
+                    <a href="#">80岁老母竟被儿女逼得有家难回< </a>
+                </li>
+                <li>
+                    <em>32</em>
+                    <a href="#">我的80后老婆从绵羊变成大灰狼</a>
+                </li>
+            </ul>
+            <p id="ranks_change_bar">
+                <a href="#" id="previous">上一页</a>
+                <a href="#" id="next">下一页</a>
+            </p>
+        </div>
+    </body>
+</html>

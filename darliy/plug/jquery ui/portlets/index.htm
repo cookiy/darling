@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>拖动布局并将排序结果保存到数据库-Helloweba演示平台</title>
+<link rel="stylesheet" type="text/css" href="./drag/main.css">
+<style type="text/css" media="all">
+@import 'css/portlets.css';
+</style>
+<link rel="stylesheet" id="CSSC" type="text/css"/>
+<style type="text/css">
+#module_list {
+	margin-left: 4px
+}
+.modules {
+	float: left;
+	width: 200px;
+	height: 140px;
+	margin: 10px;
+	overflow: hidden;
+	border: 1px solid #acc6e9;
+	background: #e8f5fe
+}
+.ModulesSort {
+	float: left;
+	width: 200px;
+	height: 140px;
+	margin: 10px;
+	overflow: hidden;
+	border: 1px solid #acc6e9;
+	background: #e8f5fe
+}
+.m_title {
+	height: 24px;
+	line-height: 24px;
+	background: #afc6e9
+}
+.ModulesSort-title {
+	height: 24px;
+	line-height: 24px;
+	background: #afc6e9
+}
+#loader {
+	height: 24px;
+	text-align: center
+}
+.clear {
+	clear: both
+}
+</style>
+</head>
+<body>
+<div id="main">
+  <div id="ColorArea">
+    <p> 选择模板： </p>
+    <ul>
+      <li title="黑色印象" ibgcolor="000000"style="background:#000;"> <a onclick="change(1)"></a> </li>
+      <li title="紫禁之巅" ibgcolor="f30000"style="background:#f30;"> <a onclick="change(2)"></a> </li>
+      <li title="星际天空" ibgcolor="1a2636"style="background:#1a2636;"> <a onclick="change(3)"></a> </li>
+    </ul>
+  </div>
+  <div id="loader"> </div>
+  <div id="module_list" class="ui-sortable">
+    <input type="hidden" id="orderlist" value="4,12,6,11,5,10,2,7,8" style="">
+    <div style="width:222px; float:left; height:auto;">
+      <div class="modules" title="4">
+        <h3 class="m_title">Module:4</h3>
+        <p> 在充值过程中如出现网页错误或打开缓慢时，请先查询银行的交易记录，检查扣款是否成功；然后查看那里帐户是否已成功充值。若没有确认，请不要反复刷新页面，以防止重复购买 ； </p>
+      </div>
+      <div class="ModulesSort">
+        <h3 class="ModulesSort-title">固定模块1</h3>
+        <p> 在充值过程中如出现网页错误或打开缓慢时，请先查询银行的交易记录，检查扣款是否成功；然后查看那里帐户是否已成功充值。若没有确认，请不要反复刷新页面，以防止重复购买 ； </p>
+      </div>
+      <div class="modules" title="12">
+        <h3 class="m_title">Module:12</h3>
+        <p> 在充值过程中如出现网页错误或打开缓慢时，请先查询银行的交易记录，检查扣款是否成功；然后查看那里帐户是否已成功充值。若没有确认，请不要反复刷新页面，以防止重复购买 ； </p>
+      </div>
+    </div>
+    <div style="width:422px; float:left; height:auto; text-align:center;">
+      <div class="modules" title="11">
+        <h3 class="m_title">Module:11</h3>
+        <p> 在充值过程中如出现网页错误或打开缓慢时，请先查询银行的交易记录，检查扣款是否成功；然后查看那里帐户是否已成功充值。若没有确认，请不要反复刷新页面，以防止重复购买 ； </p>
+      </div>
+      <div class="modules" title="5">
+        <h3 class="m_title">Module:5</h3>
+        <p> 在充值过程中如出现网页错误或打开缓慢时，请先查询银行的交易记录，检查扣款是否成功；然后查看那里帐户是否已成功充值。若没有确认，请不要反复刷新页面，以防止重复购买 ； </p>
+      </div>
+      <div class="modules" title="10">
+        <h3 class="m_title" style="cursor: move; ">Module:10</h3>
+        <p> 在充值过程中如出现网页错误或打开缓慢时，请先查询银行的交易记录，检查扣款是否成功；然后查看那里帐户是否已成功充值。若没有确认，请不要反复刷新页面，以防止重复购买 ； </p>
+      </div>
+    </div>
+    <div style="width:222px; float:left; height:auto;">
+      <div class="modules" title="2">
+        <h3 class="m_title">Module:2</h3>
+        <p> 在充值过程中如出现网页错误或打开缓慢时，请先查询银行的交易记录，检查扣款是否成功；然后查看那里帐户是否已成功充值。若没有确认，请不要反复刷新页面，以防止重复购买 ； </p>
+      </div>
+      <div class="modules" title="7">
+        <h3 class="m_title">Module:7</h3>
+        <p> 在充值过程中如出现网页错误或打开缓慢时，请先查询银行的交易记录，检查扣款是否成功；然后查看那里帐户是否已成功充值。若没有确认，请不要反复刷新页面，以防止重复购买 ； </p>
+      </div>
+      <div class="modules" title="8">
+        <h3 class="m_title">Module:8</h3>
+        <p> 在充值过程中如出现网页错误或打开缓慢时，请先查询银行的交易记录，检查扣款是否成功；然后查看那里帐户是否已成功充值。若没有确认，请不要反复刷新页面，以防止重复购买 ； </p>
+      </div>
+    </div>
+    <div class="clear"> </div>
+  </div>
+</div>
+</body>
+<script type="text/javascript" src="drag/jquery.js">
+    </script>
+<script type="text/javascript" src="drag/jquery-ui.min.js">
+    </script>
+<script type="text/javascript" src="drag/idrag.js">
+    </script>
+<script type="text/javascript" src="js/item.js">
+    </script>
+</html>

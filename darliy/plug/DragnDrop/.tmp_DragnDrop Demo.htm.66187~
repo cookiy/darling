@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0048)http://www.ajaxplaza.net/dragndrop/dragndrop.htm -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>DragnDrop Demo</title>
+        <script type="text/javascript" src="./DragnDrop Demo_files/jquery.js">
+        </script>
+        <script type="text/javascript" src="./DragnDrop Demo_files/jquery.dragndrop.js">
+        </script>
+        <style type="text/css">
+            body, html {
+                font-family: Calibri;
+                font-size: 12px;
+                height: 1000px;
+                line-height: 18px;
+            }
+            
+            p {
+                height: 30px;
+            }
+            
+            .dragDiv {
+                width: 200px;
+                background-color: #EFF7FF;
+                border: 1px solid #96C2F1;
+                position: absolute;
+                left: 100px;
+                top: 100px;
+            }
+            
+            .dragDiv h5 {
+                background-color: #B2D3F5;
+                padding: 5px;
+                margin: 1px;
+            }
+            
+            .dragDiv div {
+                padding: 5px;
+                margin-bottom: 10px;
+            }
+            
+            .dragDiv2 {
+                background-color: #F0FBEB;
+                border: 1px solid #9BDF70;
+                width: 200px;
+                position: absolute;
+                left: 400px;
+                top: 400px;
+            }
+            
+            .dragDiv2 h5 {
+                background-color: #C2ECA7;
+                padding: 5px;
+                margin: 1px;
+            }
+            
+            .dragDiv2 div {
+                padding: 5px;
+                margin-bottom: 10px;
+            }
+        </style>
+        <script type="text/javascript">
+            $().ready(function(){
+                $('.dragDiv').Drags({
+                    handler: '.handler',
+                    onMove: function(e){
+                        $('.content').html('Div Position:(Left:' + e.pageX + ' ,Top:' + e.pageY + ')');
+                    },
+                    onDrop: function(e){
+                        $('.content').html('dropped!');
+                    }
+                });
+                
+                $('.dragDiv2').Drags({
+                    handler: '.handler2',
+                    zIndex: 200,
+                    opacity: .9
+                });
+            });
+        </script>
+    </head>
+    <body>
+    	<div style="background:#f30; width:960px; height:600px; margin:0 auto;"></div>
+        <div class="dragDiv" style="left: 449px; top: 232px; cursor: auto; opacity: 1; ">
+            <h5 class="handler" style="cursor: auto; ">Drag me</h5>
+            <div class="content">
+                dropped!
+            </div>
+        </div>
+        <div class="dragDiv2" style="left: 632px; top: 102px; cursor: auto; opacity: 1; ">
+            <h5 class="handler2" style="cursor: auto; ">Drag me too</h5>
+            <div class="content2">
+                { zIndex: 200, opacity: .9 }
+            </div>
+        </div>
+        <div id="ChromeGesture-BackgroundSupportElement" style="position: fixed; top: 0px; left: 0px; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: transparent; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; z-index: -65536; width: 1349px; height: 630px; background-position: initial initial; background-repeat: initial initial; ">
+        </div>
+    </body>
+</html>

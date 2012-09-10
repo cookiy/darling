@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+  <title> html5 form demo </title>
+  <meta charset="utf-8">
+  <style>
+  input[type=text]:focus:valid,
+input[type=email]:focus:valid,
+input[type=url]:focus:valid,
+input[type=number]:focus:in-range { outline: 2px green solid; }
+
+input[type=text]:focus:invalid,
+input[type=email]:focus:invalid,
+input[type=url]:focus:valid,
+input[type=number]:focus:out-of-range { outline: 2px red solid; }
+  </style>
+ </head>
+ <body>
+ <h1>html5 form</h1>
+ <p>有效浏览器chrome,safari4,opear,ie9   无效浏览器会将type解析为text</p>
+url:<input type="url"></input><br>
+data:<input type="date"  value="2011-10-26" ></input><br>
+email:<input type="email"></input><br>
+color:<input type="color"></input><br>
+number:<input type="number" value="2"></input><br>
+range:<input type="range" value="12"></input>
+ </body>
+</html>

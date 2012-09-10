@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <title> New Document </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="Generator" content="EditPlus">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+
+ </head>
+
+ <body>
+<div id="content" style="display:none;">
+		<h3>请安装flash播放器</h3>
+		<p><a href="http://www.adobe.com/go/getflashplayer"><img src="$StaticConfig.u('/images/get_flash_player.gif')" alt="Get Adobe Flash player" /></a></p>
+	</div>
+ </body>
+   <script type="text/javascript" language="JavaScript">
+//Powered By smvv @hi.baidu.com/smvv21
+function flashChecker()
+{
+var hasFlash=0;         //是否安装了flash
+var flashVersion=0; //flash版本
+var isIE=/*@cc_on!@*/0;      //是否IE浏览器
+
+if(isIE)
+{
+var swf = new ActiveXObject('ShockwaveFlash.ShockwaveFlash');
+if(swf) {
+hasFlash=1;
+VSwf=swf.GetVariable("$version");
+flashVersion=parseInt(VSwf.split(" ")[1].split(",")[0]);
+}
+}else{
+if (navigator.plugins && navigator.plugins.length > 0)
+{
+var swf=navigator.plugins["Shockwave Flash"];
+    if (swf)
+     {
+hasFlash=1;
+        var words = swf.description.split(" ");
+        for (var i = 0; i < words.length; ++i)
+{
+            if (isNaN(parseInt(words[i]))) continue;
+            flashVersion = parseInt(words[i]);
+}
+    }
+}
+}
+return {f:hasFlash,v:flashVersion};
+}
+
+var fls=flashChecker();
+var s="";
+if(fls.f) alert("您安装了flash,当前flash版本为: "+fls.v+".x");
+else {alert("您没有安装flash")}
+ //       if(!fls.f) document.getElementById('content').style.display="block";
+   //     else document.getElementById('content').style.display="none";
+</script>
+</html>
