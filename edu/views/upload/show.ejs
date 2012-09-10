@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OA</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="javascripts/jquery.js"></script>
+    <script src="javascripts/lib/jquery.imgareaselect.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                 $('#photo').imgAreaSelect( {handles:true, fadeSpeed:200, onSelectEnd : preview});
+             })
+        </script>
+      </head>
+      <body>
+      received image: <br />
+           <img id='photo' src='/show'/>
+  </body>
+
+</html>

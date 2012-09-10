@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link href="stylesheets/side_style.css" rel="stylesheet" type="text/css" />
+    <link href="stylesheets/hi_colorA.css" rel="stylesheet" type="text/css"  />
+    <link href="stylesheets/share.css" rel="stylesheet" type="text/css" />
+    <link href="stylesheets/addressBook.css" rel="stylesheet" type="text/css" />
+    <link href="javascripts/JQLib/jquery-ui-1.8.19.custom.css" rel="stylesheet" type="text/css" />
+    <script src="javascripts/JQLib/jquery-1.7.2.min.js" type="text/javascript"></script>
+    <script src="javascripts/JQLib/jquery-ui-1.8.19.custom.min.js" type="text/javascript"></script>
+</head>
+<body class="scheduleBody">
+<div class="scheduleSection">
+  <div class="colorbg">
+    <div class="lineTop"></div>
+    <div class="addressBook">
+      <h4 class="conTop orgStrIco">通讯录-管理<span><input type="button" value="添加新员工" class="addBtn" id="BtnAdd" /></span></h4>
+      <div class="titTop">
+        <select class="" id="select1" onchange="SelectChange();">
+        </select>
+      </div>
+      <ul class="addressBookUL" id="addressBookUL">
+      </ul>
+    </div>
+  </div>
+  <div class="clearer"></div>
+</div>
+<div class="shareTabDiv" id="addUserDiv" style="display:none;">
+    <table id="tab1" class="shareTable">
+          <tr>
+            <th width="150">姓名：</th>
+            <td><input type="text" value="" class="" /></td>
+            <th width="150">办公室：</th>
+            <td><input type="text" value="" class="" /></td>
+            <th width="150">门牌号：</th>
+            <td><input type="text" value="" class="" /></td>
+          </tr>
+          <tr>
+            <th width="150">处室：</th>
+            <td><input type="text" value="" class="" /></td>
+            <th>职务：</th>
+            <td colspan="4"><input type="text" value="" size="65"/></td>
+          </tr>
+          <tr>
+            <th>手机：</th>
+            <td><input type="text" value="" /></td>
+            <th>座机：</th>
+            <td><input type="text" value="" /></td>
+            <th>家庭电话：</th>
+            <td><input type="text" value="" /></td>
+          </tr>
+          <tr>
+            <th>QQ：</th>
+            <td><input type="text" value="" /></td>
+
+            <th>Email：</th>
+            <td colspan="4"><input type="text" value="" size="65"/></td>
+          </tr>
+          <tr>
+            <th>住址：</th>
+            <td colspan="5"><input type="text" value="" size="109"/></td>
+          </tr>
+        </table>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+    //初始化添加user的模态窗口
+    $(function () {
+        $("#addUserDiv").dialog({
+            autoOpen: false,
+            height: 400,
+            width: 1200,
+            modal: true,
+            resizable: true,
+            title: "添加新员工",
+            buttons: {
+                '保存': function () {
+                    var temparr = new Array();
+                    $("#tab1 tr td input[type=text]").each(function () {
+                        temparr.push($(this).val());
+                    })
+                    //发送ajax请求
+                    alert(temparr);
+                    $("#addUserDiv").dialog("close");
+                },
+                '关闭': function () {
+                    $("#addUserDiv").dialog("close");
+                }
+            },
+            close: function () {
+                $("body").css("overflow-x", "auto");
+            }
+        });
+    })
+
+    //下拉框的绑定和change事件
+    //select里面的信息展示
+    var selectData = [{ value: '0', text: '全部员工' }, { value: '1', text: '司领导' }, { value: '2', text: '综合部' }, { value: '3', text: '培养处' }, { value: '4', text: '培训处' }, { value: '5', text: '管理处' }, { value: '6', text: '待遇处' }, { value: '7', text: '师德处'}];
+    function ShowSelectInfo() {
+        var tempselect = "";
+        for (var i = 0; i < selectData.length; i++) {
+            tempselect += "<option value='" + selectData[i].value + "'>" + selectData[i].text + "</option>";
+        }
+        return tempselect;
+    }
+    $("#select1").append($(ShowSelectInfo()));
+
+    //select 的 onchange事件
+    function SelectChange() {
+        var data = "";
+        $("#ulinfo").find("li").each(function () {
+            $(this).remove();
+        })
+        if ($("#select1").val() == "1") {
+            data = [{ name: '司领导1', department: '司领导', imgurl: 'images/user_headimg.gif', otherPhone: '0888', chushi: 'a', zhiwu: 'b', phone: '13241526699', phone1: '010-88425631', address: '朝阳区望京西', phone2: '010-85564722', menpaihao: '666', qqnumber: '68976543 ', email: 'xiaozhang@126.com' }, { name: '司领导2', department: '司领导', imgurl: 'images/user_headimg.gif', otherPhone: '0888', chushi: 'a', zhiwu: 'b', phone: '13241526699', phone1: '010-88425631', address: '朝阳区望京西', phone2: '010-85564722', menpaihao: '666', qqnumber: '68976543 ', email: 'xiaozhang@126.com' }, { name: '司领导3', department: '司领导', imgurl: 'images/user_headimg.gif', otherPhone: '0888', chushi: 'a', zhiwu: 'b', phone: '13241526699', phone1: '010-88425631', address: '朝阳区望京西', phone2: '010-85564722', menpaihao: '666', qqnumber: '68976543 ', email: 'xiaozhang@126.com'}];
+            $("#ulinfo").append($(ShowUserInfo(data)));
+            return;
+        }
+        if ($("#select1").val() == "2") {
+            data = [{ name: '综合部1', department: '综合部', imgurl: 'images/user_headimg.gif', otherPhone: '0888', chushi: 'a', zhiwu: 'b', phone: '13241526699', phone1: '010-88425631', address: '朝阳区望京西', phone2: '010-85564722', menpaihao: '666', qqnumber: '68976543 ', email: 'xiaozhang@126.com' }, { name: '综合部2', department: '综合部', imgurl: 'images/user_headimg.gif', otherPhone: '0888', chushi: 'a', zhiwu: 'b', phone: '13241526699', phone1: '010-88425631', address: '朝阳区望京西', phone2: '010-85564722', menpaihao: '666', qqnumber: '68976543 ', email: 'xiaozhang@126.com' }, { name: '综合部3', department: '综合部', imgurl: 'images/user_headimg.gif', otherPhone: '0888', chushi: 'a', zhiwu: 'b', phone: '13241526699', phone1: '010-88425631', address: '朝阳区望京西', phone2: '010-85564722', menpaihao: '666', qqnumber: '68976543 ', email: 'xiaozhang@126.com'}];
+            $("#ulinfo").append($(ShowUserInfo(data)));
+            return;
+        }
+        else {
+            data = [{ name: '其他部门1', department: '其他部门', imgurl: 'images/user_headimg.gif', otherPhone: '0888', chushi: 'a', zhiwu: 'b', phone: '13241526699', phone1: '010-88425631', address: '朝阳区望京西', phone2: '010-85564722', menpaihao: '666', qqnumber: '68976543 ', email: 'xiaozhang@126.com' }, { name: '其他部门2', department: '其他部门', imgurl: 'images/user_headimg.gif', otherPhone: '0888', chushi: 'a', zhiwu: 'b', phone: '13241526699', phone1: '010-88425631', address: '朝阳区望京西', phone2: '010-85564722', menpaihao: '666', qqnumber: '68976543 ', email: 'xiaozhang@126.com' }, { name: '其他部门3', department: '其他部门', imgurl: 'images/user_headimg.gif', otherPhone: '0888', chushi: 'a', zhiwu: 'b', phone: '13241526699', phone1: '010-88425631', address: '朝阳区望京西', phone2: '010-85564722', menpaihao: '666', qqnumber: '68976543 ', email: 'xiaozhang@126.com'}];
+            $("#ulinfo").append($(ShowUserInfo(data)));
+            return;
+        }
+    }
+
+    //数据展示html
+    function ShowUserInfo(tempobj) {
+        var html = "";
+        for (var i = 0; i < tempobj.length; i++) {
+            html += "<li>";
+            html += "<a href='javascript:void(0);' class='edit' onclick='EditClick(this);'>编辑</a>";
+            html += "<a href='javascript:void(0);' class='del' onclick='DelClick(this);'>删除</a>";
+            html += "<a href='javascript:void(0);'  class='save' style='display:none' onclick='SaveClick(this);'>保存</a>";
+            html += "<a href='javascript:void(0);' class='getBack' style='display:none' onclick='Goback(this);'>返回</a>";
+            html += "<div class='leftPhoto'><img src='" + tempobj[i].imgurl + "' />" + tempobj[i].name + "-" + tempobj[i].department + "<span><em>" + tempobj[i].otherPhone + "</em></span></div>";
+            html += "<div class='info'>";
+            html += "<div class='left'>";
+            html += "<p class='cs'><b>处室：</b><input type='text' value='" + tempobj[i].chushi + "' disabled='disabled'/></p>";
+            html += "<p class='zw'><b>职务：</b><input type='text' value='" + tempobj[i].zhiwu + "' disabled='disabled'/></p>";
+            html += "<p class='phone'><b>手机：</b><input type='text' value='" + tempobj[i].phone + "' disabled='disabled'/></p>";
+            html += "<p class='zPhone'><b>座机：</b><input type='text' value='" + tempobj[i].phone1 + "' disabled='disabled'/></p>";
+            html += "<p class='address'><b>住址：</b><input type='text' value='" + tempobj[i].address + "' disabled='disabled'/></p>";
+            html += "</div>";
+            html += "<div class='right'>";
+            html += "<p class='jtPhone'><b>家庭电话：</b><input type='text' value='" + tempobj[i].phone2 + "' disabled='disabled'/></p>";
+            html += "<p class='houseNo'><b>门牌号：</b><input type='text' value='" + tempobj[i].menpaihao + "' disabled='disabled'/></p>";
+            html += "<p class='qq'><b>Q  Q：</b><input type='text' value='" + tempobj[i].qqnumber + "' disabled='disabled'/></p>";
+            html += "<p class='email'><b>Email：</b><input type='text' value='" + tempobj[i].email + "' disabled='disabled'/></p>";
+            html += "</div>";
+            html += "</div>";
+            html += "</li>";
+        }
+        return html;
+    }
+
+    //去除边框
+    function changecssinput() {
+        $("#addressBookUL input[type=text]").each(function () {
+            var cor = $(this).parent().css("background-color");
+            $(this).removeAttr("disabled").prop("readonly", "readonly").css({ "background-color": cor, "border-width": "0 0", "color": "#000000", "cursor": "default" });
+        });
+    }
+
+    //pageload准备数据 并展现修改input样式
+    var _tempobj = [{ name: '小张', department: '管理处', imgurl: 'images/user_headimg.gif', otherPhone: '0888', chushi: 'a', zhiwu: 'b', phone: '13241526699', phone1: '010-88425631', address: '朝阳区望京西', phone2: '010-85564722', menpaihao: '666', qqnumber: '68976543 ', email: 'xiaozhang@126.com' }, { name: '小张', department: '管理处', imgurl: 'images/user_headimg.gif', otherPhone: '0888', chushi: 'a', zhiwu: 'b', phone: '13241526699', phone1: '010-88425631', address: '朝阳区望京西', phone2: '010-85564722', menpaihao: '666', qqnumber: '68976543 ', email: 'xiaozhang@126.com' }, { name: '小张', department: '管理处', imgurl: 'images/user_headimg.gif', otherPhone: '0888', chushi: 'a', zhiwu: 'b', phone: '13241526699', phone1: '010-88425631', address: '朝阳区望京西', phone2: '010-85564722', menpaihao: '666', qqnumber: '68976543 ', email: 'xiaozhang@126.com' }, { name: '小张', department: '管理处', imgurl: 'images/user_headimg.gif', otherPhone: '0888', chushi: 'a', zhiwu: 'b', phone: '13241526699', phone1: '010-88425631', address: '朝阳区望京西', phone2: '010-85564722', menpaihao: '666', qqnumber: '68976543 ', email: 'xiaozhang@126.com'}];
+    $("#addressBookUL").append($(ShowUserInfo(_tempobj)))
+    changecssinput();
+
+
+    //保存数据(返回按钮的事件需要)----array
+    var _tempDataArr = new Array();
+    //编辑事件
+    function EditClick(obj) {
+        $(obj).css("display", "none");
+        $(obj).next().css("display", "none");
+        $(obj).next().next().css("display", "block");
+        $(obj).next().next().next().css("display", "block");
+        $(obj).parent().find("input[type=text]").each(function () {
+            $(this).removeAttr("readonly").css("border", "1px solid black");
+            _tempDataArr.push($(this).val());
+        })
+    }
+
+    //删除事件
+    function DelClick(obj) {
+        if (!window.confirm("请确定是否删除?")) {
+                return;
+        }
+        //ajax提交到服务器
+        var temp = new Array();
+        $(obj).parent().find("input[type=text]").each(function (i) {
+            temp.push($(this).val());
+        })
+        //页面端删除li
+        $(obj).parent().remove();
+    }
+
+    //保存事件
+    function SaveClick(obj) {
+        //ajax提交到服务器
+        var temp = new Array();
+        $(obj).parent().find("input[type=text]").each(function (i) {
+            temp.push($(this).val());
+        })
+        //如果保存成功
+        if (1 == 1) {
+            $(obj).css("display", "none");
+            $(obj).next().css("display", "none");
+            $(obj).prev().css("display", "block");
+            $(obj).prev().prev().css("display", "block");
+            changecssinput();
+        }
+
+        //如果保存失败
+        if (1 == 2) {
+            alert("更新失败,请重新操作!");
+        }
+    }
+
+    //返回事件 --这里涉及到绑定值的问题,因为这里并没有操作数据
+    function Goback(obj) {
+        //重新赋值
+        $(obj).parent().find("input[type=text]").each(function (i) {
+            $(this).val(_tempDataArr[i]);
+        })
+        $(obj).css("display", "none");
+        $(obj).prev().css("display", "none");
+        $(obj).prev().prev().css("display", "block");
+        $(obj).prev().prev().prev().css("display", "block");
+        changecssinput();
+    }
+
+    $("#BtnAdd").click(function () {
+        $("#addUserDiv").dialog("open");
+    })
+
+    //保存数据的对象
+    var objJson = {
+        name:'',
+        department:'',
+        imgurl:'',
+        otherPhone:'',
+        chushi:'',
+        zhiwu:'',
+        phone:'',
+        phone1:'',
+        address:'',
+        phone2:'',
+        menpaihao:'',
+        qqnumber:'',
+        email:''
+    };
+</script>

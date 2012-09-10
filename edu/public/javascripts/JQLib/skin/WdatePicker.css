@@ -1,0 +1,9 @@
+.dateinput{
+	cursor:pointer; background:url(default/overlay_time.gif) center right no-repeat;
+}
+
+
+.WdateFmtErr{
+	font-weight:bold;
+	color:red;
+}

@@ -1,0 +1,48 @@
+/*----------------------------------------------------通知模块------------------------------------------------------*/
+.notice{ padding:0;height:566px;position:relative; }
+.noticeLeft{ position:absolute;left:0; top:0;width:180px;height:526px;padding:40px 10px 0 30px; }
+.noticeCon{margin:0 420px 0 220px; height:526px;padding:78px 0 0;position: relative;}
+.noticeRight{ position:absolute;right:0; top:0;width:400px;height:566px;}
+/*left*/
+a.topPage{width:80px;height:42px; margin-left: 40px; display:block;}
+a.btomPage{width:80px;height:42px; margin-left: 40px;display:block;}
+.noticeRelease{width:158px; height:60px; margin-bottom:10px;}
+.noticeRelease span{padding:0 0 0 24px; margin:14px 0 0 30px; display:block;}
+.stday{padding:10px 0 0;}
+.stday li{font-size:20px; text-align:center; padding-bottom:4px;}
+.stday li a{width:158px; height:60px; display:block;position:relative;}
+.stday li a em{width:46px; height:32px; display:block;position:absolute; right:-13px; top:4px;font-size:14px;}
+.stday li a span{font-size:14px;display:block; clear:both;text-align:left;padding:0 0 0 20px;}
+.textareaWid{ width:96%; margin:auto; padding:4px; clear:both;}
+/*conter*/
+.noticeCon h2{ font-size:48px; font-weight:bolder;line-height:58px; text-align:center;}
+.noticeCon .info{ font-size:36px; line-height:48px; padding:10px 0;}
+.noticeCon .noticebtn{ text-align:center;padding:10px 0;}
+.noticeCon .noticebtn input[type="button"]{ margin:0 4px;height:42px;border:0; cursor:pointer;}
+.noticeCon .noticebtn input[type="button"].red{  width:125px;}
+.noticeCon .noticebtn input[type="button"].orge{ width:152px;}
+.noticeCon .divStyleL,.noticeCon .divStyleR{width:190px; height:48px; position:absolute; top:11px;}
+.noticeCon .divStyleL{left:0;}
+.noticeCon .divStyleR{right:-128px;}
+/*right*/
+.noticeList{padding:70px 28px 0 0;}
+.noticeList li{padding:8px 0;}
+.noticeList li .top{ font-size:14px; color:#999;}
+.noticeList li .top span{ float:right; width:52px;display:block;}
+.noticeList li .top span a{width:22px; height:22px; display:block; float:left; margin:0 4px 0 0;}
+.noticeRight .btmpage{padding:10px 28px 0 100px;}
+.noticeRight .btmpage a{ width:24px; height:24px;display:block; float:left;}
+.noticeRight .btmpage span{float:left; width:80px; float:left; text-align:center;line-height: 20px;}
+
+
+
+
+
+
+
+
+
+
+
+
+

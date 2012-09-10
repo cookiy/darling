@@ -1,0 +1,70 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'cairo' ]
+2 info using npm@1.1.45
+3 info using node@v0.8.4
+4 verbose node symlink C:\Program Files\nodejs\\node.exe
+5 verbose config file C:\Documents and Settings\wangguanjia\.npmrc
+6 verbose config file C:\Program Files\nodejs\etc\npmrc
+7 verbose config file C:\Program Files\nodejs\node_modules\npm\npmrc
+8 verbose read json D:\ejs\package.json
+9 warn package.json application-name@0.0.1 No README.md file found!
+10 verbose read json D:\ejs\node_modules\async\package.json
+11 verbose read json D:\ejs\node_modules\cluster\package.json
+12 verbose read json D:\ejs\node_modules\connect-flash\package.json
+13 verbose read json D:\ejs\node_modules\derby\package.json
+14 verbose read json D:\ejs\node_modules\ejs\package.json
+15 verbose read json D:\ejs\node_modules\express\package.json
+16 verbose read json D:\ejs\node_modules\express-partials\package.json
+17 verbose read json D:\ejs\node_modules\formidable\package.json
+18 verbose read json D:\ejs\node_modules\formidable232323\package.json
+19 verbose read json D:\ejs\node_modules\generic-pool\package.json
+20 verbose read json D:\ejs\node_modules\mocha\package.json
+21 verbose read json D:\ejs\node_modules\mysql\package.json
+22 verbose read json D:\ejs\node_modules\ndir\package.json
+23 verbose read json D:\ejs\node_modules\sys\package.json
+24 verbose read json D:\ejs\node_modules\util\package.json
+25 verbose read json D:\ejs\node_modules\validator\package.json
+26 warn package.json connect-flash@0.1.0 No README.md file found!
+27 warn package.json sys@0.0.1 No README.md file found!
+28 warn package.json util@0.4.9 No README.md file found!
+29 verbose from cache D:\ejs\package.json
+30 verbose readDependencies using package.json deps
+31 verbose cache add [ 'cairo', null ]
+32 silly cache add name=undefined spec="cairo" args=["cairo",null]
+33 verbose parsed url { pathname: 'cairo', path: 'cairo', href: 'cairo' }
+34 silly lockFile e03dc4c5-cairo cairo
+35 verbose lock cairo C:\Documents and Settings\wangguanjia\Application Data\npm-cache\e03dc4c5-cairo.lock
+36 silly lockFile e03dc4c5-cairo cairo
+37 verbose addNamed [ 'cairo', '' ]
+38 verbose addNamed [ null, '' ]
+39 silly lockFile e7ee282f-cairo cairo@
+40 verbose lock cairo@ C:\Documents and Settings\wangguanjia\Application Data\npm-cache\e7ee282f-cairo.lock
+41 silly addNameRange { name: 'cairo', range: '', hasData: false }
+42 verbose url raw cairo
+43 verbose url resolving [ 'https://registry.npmjs.org/', './cairo' ]
+44 verbose url resolved https://registry.npmjs.org/cairo
+45 info retry registry request attempt 1 at 16:09:27
+46 http GET https://registry.npmjs.org/cairo
+47 http 404 https://registry.npmjs.org/cairo
+48 silly registry.get cb [ 404,
+48 silly registry.get   { server: 'CouchDB/1.2.0 (Erlang OTP/R15B)',
+48 silly registry.get     date: 'Mon, 20 Aug 2012 08:10:39 GMT',
+48 silly registry.get     'content-type': 'application/json',
+48 silly registry.get     'content-length': '52',
+48 silly registry.get     'cache-control': 'must-revalidate' } ]
+49 silly lockFile e7ee282f-cairo cairo@
+50 error 404 'cairo' is not in the npm registry.
+50 error 404 You should bug the author to publish it
+50 error 404
+50 error 404 Note that you can also install from a
+50 error 404 tarball, folder, or http url, or git url.
+51 error System Windows_NT 5.1.2600
+52 error command "C:\\Program Files\\nodejs\\\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "cairo"
+53 error cwd D:\ejs
+54 error node -v v0.8.4
+55 error npm -v 1.1.45
+56 error code E404
+57 verbose exit [ 1, true ]

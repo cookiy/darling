@@ -1,0 +1,304 @@
+@charset "UTF-8";
+/* CSS Document */
+
+.WdateDiv{
+	/* width:218px; */
+	width:360px;
+	background-color:#fff;
+	border-left:1px solid #ccc;
+	border-right:1px solid #ccc;
+}
+
+.WdateDiv2{
+	width:360px;
+}
+.WdateDiv *{font-size:16px;}
+
+.WdateDiv .NavImg a{
+	margin-top:4px;
+	cursor:pointer;
+	display:block;
+	width:15px;
+	height:15px;
+}
+.WdateDiv .NavImgll a{
+	background:url(left-btn2.gif) no-repeat center center;
+	float:left; 
+	margin-left:2px;
+}
+.WdateDiv .NavImgl a{
+	background:url(left-btn.gif) no-repeat center center;
+	float:left; 
+	margin-left:2px;
+}
+.WdateDiv .NavImgr a{
+	background:url(right-btn.gif) no-repeat center center;
+	float:right;
+	margin-right:2px;
+}
+.WdateDiv .NavImgrr a{
+	background:url(right-btn2.gif) no-repeat center center;
+	float:right;
+	margin-right:2px;
+}
+
+
+
+.WdateDiv #dpTitle{
+	height:26px;
+	background:transparent url(title_bg.gif) repeat-x scroll;
+	color:#FFFFFF;
+	font-family:tahoma,verdana,helvetica;
+	font-size:12px;
+	font-size-adjust:none;
+	font-stretch:normal;
+	font-style:normal;
+	font-variant:normal;
+	font-weight:bold;
+	padding-top:2px;
+	border:1px solid #6a2a0a;
+}
+
+/* 年月input */
+.WdateDiv .yminput{
+	margin-top:2px;
+	text-align:center;
+	border:0px;
+	height:20px;
+	width:100px;
+	color:#FFF;
+	background-color:transparent;
+	cursor:pointer;
+}
+.WdateDiv .yminputfocus{
+	margin-top:2px;
+	text-align:center;
+	border:#939393 1px solid;
+	font-weight:bold;
+	color:#034c50;	
+	height:20px;
+	width:100px;
+}
+
+/* 选择年月下拉select */
+.WdateDiv .menuSel{
+	width:100px;
+	z-index:1;
+	position:absolute;
+	
+	background-color:#FFFFFF;
+	border:1px solid #6a2a0a;
+	display:none;
+}
+.WdateDiv .menu{
+	cursor:pointer;
+	background-color:#fff;
+	color:#11777C;
+	width:40px;
+}
+.WdateDiv .menuOn{
+	cursor:pointer;
+	width:40px;
+	background-color: #ffd98c;
+}
+.WdateDiv .invalidMenu{
+	color:#aaa;
+	width:40px;
+}
+
+/* 年下拉select的位置 */
+.WdateDiv .YMenu{
+	margin-top:22px;
+}
+
+/* 月下拉select的位置 */
+.WdateDiv .MMenu{
+	margin-top:22px;
+	*width:62px;
+}
+
+.WdateDiv .hhMenu{
+	margin-top:-90px; 
+	margin-left:26px;
+}
+.WdateDiv .mmMenu{
+	margin-top:-46px; 
+	margin-left:26px;
+}
+.WdateDiv .ssMenu{
+	margin-top:-24px; 
+	margin-left:26px;
+}
+
+
+/* 本年度第几周 */
+ .WdateDiv .Wweek {
+ 	text-align:center;
+	background:#f3f3f3;
+	color:#999;
+	border-right:#ccc 1px solid;
+ }
+
+/* 本周 */
+.WdateDiv .MTitle{
+	height:30px;
+	color:#f6b0b0;
+	cursor:default;
+	font-family:tahoma,verdana,helvetica;
+	font-size:12px; 
+	padding-top:2px;
+	background:#8b0900;
+}
+.WdateDiv .MTitle td{
+	background:url(glass-bg.gif) repeat-x !important;
+}
+.WdateDiv .WdayTable2{
+	border-collapse:collapse;
+	border:#000 1px solid;
+}
+.WdateDiv .WdayTable2 table{
+	border-right:#ccc 1px solid;
+}
+.WdateDiv .WdayTable{
+	line-height:30px;	
+	color:860505; 
+	font-weight:bold;
+}
+.WdateDiv .WdayTable td{
+	text-align:center;
+}
+
+.WdateDiv .Wday{
+	cursor:pointer;
+	background-image:url(td_bg.gif);
+}
+
+/* 本月每日hover */
+.WdateDiv .WdayOn{
+	cursor:pointer;
+	background:url(today.gif) no-repeat;
+}
+/* 周六、日 */
+.WdateDiv .Wwday{
+	cursor:pointer;
+	color:#ab1e1e;
+	background-image:url(td_bg.gif);
+}
+.WdateDiv .WwdayOn{
+	cursor:pointer;
+	background:url(today.gif) no-repeat;
+}
+.WdateDiv .Wtoday{
+	cursor:pointer;
+	color:red;
+}
+
+/* 今天 - 正选择 */
+.WdateDiv .Wselday{
+	background:url(today.gif) no-repeat;
+}
+.WdateDiv .WspecialDay{
+	background-color:#66F4DF;
+}
+/* 上个月 */
+.WdateDiv .WotherDay{ 
+	cursor:pointer;
+	color:#AAAAAA;
+	background-image:url(td_bg.gif);
+}
+.WdateDiv .WotherDayOn{ 
+	cursor:pointer;
+	background-color:#ccc;
+}
+.WdateDiv .WinvalidDay{
+	color:#aaa;
+}
+
+
+/* 小时、分钟、秒 */
+.WdateDiv #dpTime{
+	width:200px;
+	text-align:left;
+	margin-left:80px;
+	height:28px;
+	line-height:20px;
+	padding:4px 0 4px 0;
+}
+
+.WdateDiv #dpTime #dpTimeStr{
+	margin-left:1px;
+	color:#233D6D;
+}
+
+.WdateDiv #dpTime input{
+	height:26px;
+	width:28px;
+	text-align:center;
+	color:#333;
+	border:#A3BAD9 1px solid;	
+}
+
+.WdateDiv #dpTime .tB{
+	border-right:0px;
+	
+}
+
+.WdateDiv #dpTime .tE{
+	border-left:0;
+	border-right:0;
+}
+
+.WdateDiv #dpTime .tm{
+	width:12px;
+	border-left:0;
+	border-right:0;
+}
+
+.WdateDiv #dpTime #dpTimeUp{
+	height:14px;
+	width:16px;
+	border:0px;
+	background:url(img.gif) no-repeat -32px -16px;
+	cursor:pointer;
+	margin-bottom:0;
+	padding-bottom:0;
+}
+
+.WdateDiv #dpTime #dpTimeDown{
+	height:14px;
+	width:16px;
+	border:0px;
+	background:url(img.gif) no-repeat -48px -16px;
+	cursor:pointer;
+	margin-top:0;
+	padding-top:0;
+}
+
+/* 按钮 */
+ .WdateDiv #dpQS {
+ 	float:left;
+	margin-left:8px;
+	margin-top:9px;
+	background:url(dateselect.gif) no-repeat;
+	width:30px;
+	height:24px;
+	cursor:pointer;
+ }
+.WdateDiv #dpControl {
+	text-align:right;
+	margin-top:0px;
+	background:#DFECFB url(btm_bg.gif) repeat-x scroll left top;
+	padding:4px;
+}
+.WdateDiv .dpButton{ 
+	width:84px;
+	height:24px;
+	line-height:22px;
+	border:1px solid #ae4919;
+	background:#853710 url(btn_bg.gif) repeat-x;
+	color:#fff;
+	cursor:pointer;
+	padding:0;
+	margin:0;
+
+}

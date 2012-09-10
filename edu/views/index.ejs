@@ -1,0 +1,473 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>hi Ambow</title>
+    <base target="_blank" />
+    <link href="stylesheets/hi_default.css" rel="stylesheet" type="text/css"  />
+    <link href="stylesheets/hi_colorA.css" rel="stylesheet" type="text/css"  />
+    <link href="stylesheets/hi_online.css" rel="stylesheet" type="text/css"  />
+    <link href="stylesheets/weibo.css" rel="stylesheet" type="text/css" />
+    <link href="stylesheets/common.css" rel="stylesheet" type="text/css" />
+    <link href="javascripts/JQLib/jquery-ui-1.8.18.custom.css" rel="stylesheet" type="text/css" />
+    <script src="javascripts/JQLib/jquery-1.7.2.min.js" type="text/javascript"></script>
+    <script src="javascripts/JQLib/jquery-ui-1.8.18.custom.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="javascripts/Index/hi_mian.js" ></script>
+</head>
+<body class="bgindex">
+<div class="wrapper_body" >
+  <div id="startingCover">
+    <div id="startingLogo"></div>
+    <div id="startingText">Starting ...<a href="javascript:void(0);" id="startingChangeEvn" style="display:none;" >您的网络不给力，请尝试手动切换环境!</a></div>
+    <div id="startingBarContainer">
+      <div id="startingBar">11</div>
+    </div>
+    <div id="startingTips">0%</div>
+  </div>
+
+  <!--logo begin-->
+  <div id="logo"> <a class="first" href="#">教育部教师工作司</a><a class="second" href="#">电子政务系统</a> </div>
+  <!--logo end-->
+
+  <!--hi_Container-->
+  <div class="hi_Container">
+    <!--topBar 顶部工具栏-->
+    <div id="topBar"></div>
+    <!--leftBar 导航 -->
+    <div id="leftBar">
+      <ul class="dockItemList">
+        <li class="appbutton_grbl" title="组织" onclick="zuzhihtml();">
+          <div class="appbutton_img styleico1"></div>
+          <div class="appbtn_title">组织</div>
+        </li>
+        <li class="appbutton_grass" title="短信" onclick="Emessagehtml();">
+          <div class="appbutton_img styleico2"></div>
+          <div class="appbtn_title">短信</div>
+        </li>
+        <li class="appbutton_addressBook" title="通讯录" onclick="addressBookhtml();">
+          <div class="appbutton_img styleico3"></div>
+          <div class="appbtn_title">通讯录</div>
+        </li>
+        <li class="appbutton_ora" title="新建公文"><a href="print_model2.aspx" target="_blank">
+          <div class="appbutton_img styleico4"></div>
+          <div class="appbtn_title">新建公文</div>
+          </a> </li>
+        <li class="appbutton_registration" title="设备登记" onclick="equipmenthtml();">
+          <div class="appbutton_img styleico5"></div>
+          <div class="appbtn_title">设备登记</div>
+        </li>
+        <li class="appbutton_green" title="通知" onclick="noticehtml();">
+          <div class="appbutton_img styleico6"></div>
+          <div class="appbtn_title">通知</div>
+        </li>
+      </ul>
+      <!--settingbutton-->
+      <div class="settingbutton"><a href="" class="appbutton_img" title="设置"></a></div>
+    </div>
+
+    <!--desktopWrapper 桌面-->
+    <div id="desktopWrapper">
+        <div class="hi_pageslider resources">
+  <!--01 buttonItemList 第一列-->
+  <div class="buttonItemList">
+    <div class="buttonListbox buttonListboxOne" id="buttonList1">
+      <div class="appbutton app_big help_appbutton app_big_blue" id="main4"><span class="appbutton_img"></span>
+        <div class="appbutton_imgL">
+          <p>07/15 关于开展2012年度...</p>
+          <p>07/14 关于开展教育部2012...</p>
+          <p>07/13 关于下发免费师范毕...</p>
+          <a href="javascript:void(0);" charset="" class="more" onclick="calendarhtml(); return false">更多</a> </div>
+      </div>
+      <div class="appbutton app_big  help_appbutton app_big_gre" id="main5"> <span class="appbutton_img"></span>
+        <div class="appbutton_imgL">
+          <p>07/15 关于开展2012年度...</p>
+          <p>07/14 关于开展教育部2012...</p>
+          <p>07/13 关于下发免费师范毕...</p>
+          <a href="javascript:void(0);" charset="" class="more" onclick="workListhtml(); return false">更多</a> </div>
+      </div>
+      <div class="appbutton app_big  help_appbutton app_big_ora" id="main6"> <span class="appbutton_img"></span>
+        <div class="appbutton_imgL">
+          <p>07/15 关于开展2012年度...</p>
+          <p>07/14 关于开展教育部2012...</p>
+          <p>07/13 关于下发免费师范毕...</p>
+          <a href="javascript:void(0);" charset="" class="more" onclick="toWorkListhtml(); return false">更多</a> </div>
+      </div>
+    </div>
+    <!-- end buttonItemList-->
+
+    <!--02 第2列-->
+    <div class="buttonListbox buttonListboxTwo" id="buttonList2">
+      <!--时间区域 begin-->
+      <div class="app_big magenta" id="main7">
+        <div id="timeTool" class="rightTool">
+          <div id="todaydate">获取时间位置</div>
+          <div class="today"> <a href="javascript:void(0);" onclick="richengIMG(); return false"><b>星期一</b><br/>
+            16<br/>
+            初四</a> <a href="javascript:void(0);" onclick="richengIMG(); return false"><b>星期二</b><br/>
+            17<br/>
+            初五</a> <a href="javascript:void(0);" onclick="richengIMG(); return false"><b>星期三</b><br/>
+            18<br/>
+            初六</a> <a href="javascript:void(0);" onclick="richengIMG(); return false"><b>星期四</b><br/>
+            19<br/>
+            中伏</a> <a href="javascript:void(0);" onclick="richengIMG(); return false"><b>星期五</b><br/>
+            20<br/>
+            初八</a> </div>
+        </div>
+      </div>
+
+      <!--messageBoard mood 心情标签 begin-->
+      <div class="messageMood">
+        <p id="messageMoodPone">毛阿敏：一转眼就已挥霍了最后的青春。现实一点一点消磨我们的棱角，侵蚀我们的梦想，在失落，遗憾，不甘，愤懑的时候... <span>--------------2012-08-09 15:12</span></p>
+        <p id="messageMoodPone1">毛阿敏：一转眼就已挥霍了最后的青春。现实一点一点消磨我们的棱角，侵蚀我们的梦想，在失落，遗憾，不甘，愤懑的时候... <span>--------------2012-08-09 15:12</span></p>
+        <a href="javascript:void(0);" class="mesedit" id="mesedit">写心情</a>
+        <div class="mesconter" id="mesconter" style="display:none;">
+          <textarea></textarea>
+          <input type="button" value="发表"  class="btn_ora" id="mesconbtn" />
+        </div>
+      </div>
+      <!--messageBoard mood 心情标签 end-->
+    </div>
+  </div>
+  <!-- end buttonItemList 02-->
+  <script type="text/javascript">
+      /*--时钟--*/
+      var clock = $("#clock"), todaydate = $('#todaydate');
+
+      //update clock function
+      function SetTimer() {
+          var now = new Date();
+
+          var hour = now.getHours();
+          myYear = now.getFullYear();   //获取完整的年份(4位,1970-????)
+          myMonth = now.getMonth();
+          nowDate = now.getDate();      //获取当前日(1-31)
+          Day = new Array("星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六");
+          nowDay = now.getDay();        //获取当前星期X(0-6,0代表星期天)
+
+
+          if (hour < 10) hour = "0" + hour;
+          var mins = now.getMinutes();
+          if (mins < 10) mins = "0" + mins;
+          var secs = now.getSeconds();
+          if (secs < 10) secs = "0" + secs;
+          todaydate.html("<h1>" + myYear + "年" + (myMonth + 1) + "月" + nowDate + "日 &nbsp;" + Day[nowDay] + " &nbsp;" + hour + ":" + mins + ":" + secs + "</h1>");
+      }
+
+      //执行时钟
+      setInterval("SetTimer()", 1000);
+
+      var loginhtml = function () {
+          art.dialog.open('login.ejs', { title: '系统登录' });
+      }
+
+      var navhtml = function () {
+          art.dialog.open('mainnav.ejs', { title: '标题' });
+      }
+
+      var calendarhtml = function () {
+          window.location.href = "calendar.ejs";
+//          var _temp_ = jQuery.FrameDialog.create({
+//              url: "calendar.aspx",
+//              title: '日程',
+//              width: 1000,
+//              height: 700,
+//              position: 'center',
+//              autoOpen: false
+//          });
+//          _temp_.dialog("open");
+      }
+      var gongwenIMG = function () {
+          window.location.href = "gongwenIMG.ejs";
+          //Boxy.load("gongwenIMG.aspx", { title: "公文" });
+      }
+      var noticehtml = function () {
+          window.location.href = "notice.ejs";
+          //Boxy.load("notice.aspx", { title: "通知" });
+      }
+      var Emessagehtml = function () {
+          window.location.href = "SendMessage.ejs";
+//          Boxy.load("Emessage_liu.aspx", { title: "短信" });
+//          var _temp_ = jQuery.FrameDialog.create({
+//              url: "../FrameDialog/Default2.aspx",
+//              title: '短信',
+//              width: 1000,
+//              height: 700,
+//              position: 'center',
+//              autoOpen: false
+//          });
+//          _temp_.dialog("open");
+      }
+      var zuzhihtml = function () {
+          window.location.href = "organizationStructure_liuxiao.ejs";
+          //Boxy.load("organizationStructure_liuxiao.aspx", { title: "组织结构" });
+      }
+      var addressBookhtml = function () {
+          window.location.href = "/showusers";
+          //Boxy.load("addressBook_liu.aspx", { title: "通讯录" });
+      }
+      var equipmenthtml = function () {
+          window.location.href = "equipment_liu.ejs";
+          //Boxy.load("equipment_liu.aspx", { title: "设备登记" });
+      }
+      var workListhtml = function () {
+          window.location.href = "workList.ejs";
+          //Boxy.load("workList.aspx", { title: "工作动态" });
+      }
+      var toWorkListhtml = function () {
+          window.location.href = "toWorkList.ejs";
+          //Boxy.load("toWorkList.aspx", { title: "待办工作" });
+      }
+ </script>
+</div>
+    </div>
+    <!--desktopWrapper 桌面 end-->
+
+    <!--rightbar 右边小工具区域-->
+    <div id="rightBar">
+      <!-- login -->
+      <div class="right_zone">
+        <div class="webaddress"> LzzLoveU.ambow.com</div>
+        <div id="loginbox"> <a href="javascript:void(0);" onclick="loginhtml();" class="systemicon">设置</a> <a href="#" class="closeicon">退出</a> </div>
+      </div>
+      <div class="right_ztwo"> <a href="javascript:void(0);"  class="user_headimg" title="用户" style="float:left;"><img src="images/face.jpg" width="52" height="60" /></a><a href="#" class="xialaicon" style="float:left;margin-left:10px;margin-top:30px;">&nbsp;</a></div>
+    </div>
+
+    <!--底部在线人员开始 begin-->
+    <div class="wbim_box">
+      <!--底部聊天 bbegin-->
+      <div class="wbim_min_box_col2" style="position: absolute; bottom: 0px; right: 0px;">
+        <div class="wbim_min_box">
+          <div class="wbim_min_friend" id="wbim_min_box_col22" >
+            <p class="statusbox"><span class="wbim_status_online"></span></p>
+            聊天 [ <span class="wbim_online_count" title="在线联系人">0</span> ]<span class="webim_rec_count" style="display: none; color: gray; margin-left: 80px;"></span></div>
+          <div class="wbim_min_line wbim_min_linefor3"></div>
+          <div class="wbim_min_chat"><span class="wbim_icon_msg"></span><span class="wbim_min_text_pre"></span><span suda-uatrack="key=tblog_webim_behavior&amp;value=click_unread_message" class="wbim_min_nick"></span><span class="line"></span><span class="wbim_min_text"></span></div>
+        </div>
+      </div>
+
+      <!-- maoxufeng -->
+      <div class="wbim_min_box_col2" id="closeAll" style="position: absolute; bottom:0px; right: 0px; width:198px; height:24px; display:none;  z-index:999999;"></div>
+      <!-- maoxufeng End -->
+      <!--底部聊天 end-->
+
+      <!--所有联系人 begin-->
+      <div class="wbim_list_expand" style="z-index: 1001; right: 0px; bottom: 24px; display:none;" id="wbim_list_expand">
+        <div class="wbim_list_con">
+          <div class="wbim_tit">
+            <div class="wbim_titin">
+              <div class="wbim_tit_lf">
+                <div>
+                  <div class="tit"><span class="wbim_status_online"></span><span class="txt">在线</span><span class="icon"></span></div>
+                  <div class="linert"></div>
+                  <ul style="display: none;">
+                    <li class="lingtop"></li>
+                    <li><a href="javascript:void(0);"><span class="wbim_status_online"></span>在线</a></li>
+                    <li><a href="javascript:void(0);"><span class="wbim_status_busy"></span>忙碌</a></li>
+                    <li><a href="javascript:void(0);"><span class="wbim_status_away"></span>离开</a></li>
+                    <li><a href="javascript:void(0);"><span class="wbim_status_offline"></span>隐身</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="wbim_tit_rt"><a title="最小化" class="wbim_icon_mini" href="javascript:void(0);" id="coweiboX"></a></div>
+            </div>
+          </div>
+          <div class="wbim_line"></div>
+          <div class="wbim_list_up">
+            <div class="wbim_list_srch">
+              <div class="wbim_list_srchin"><a href="javascript:void(0);" style="display:none;" class="wbim_icon_close_s"></a>
+                <input type="text" value="查找好友">
+              </div>
+            </div>
+          </div>
+
+          <div style="position:absolute;top:74px;left:2px;width:180px;height:31px;background-color:white;z-index:1;display:none;overflow:hidden;" class="wbim_float_group_tit"></div>
+          <div class="wbim_list_box">
+            <div class="wbim_list_friend">
+              <div class="wbim_list_group">
+                <div class="wbim_list_group_tit wbim_open" title="在线好友">在线好友 [ <span title="在线好友">0</span> ]</div>
+                <ul style="">
+                  <li title="启己" id="qizhi" class="wbim_offline">
+                    <div class="wbim_userhead"><img src="images/2.jpeg""><span style="display:none;" class="wbim_icon_msg_s"></span><span class="wbim_status_offline"></span></div>
+                    <div class="wbim_username">启己 <span title="微博会员"></span></div>
+                  </li>
+                  <li title="互联网和网游猎头" id="qizhi2" class="wbim_offline">
+                    <div class="wbim_userhead"><img src="images/1.jpeg"><span style="display:none;" class="wbim_icon_msg_s"></span><span class="wbim_status_offline"></span></div>
+                    <div class="wbim_username">互联网和网游<span title="微博会员"></span></div>
+                  </li>
+                </ul>
+              </div>
+              <div class="wbim_list_group">
+                <div class="wbim_list_group_tit wbim_close" title="我的好友">我的好友 [ <span title="在线好友">0</span> ]</div>
+                <ul style="">
+                </ul>
+              </div>
+              <div class="wbim_list_group">
+                <div class="wbim_list_group_tit wbim_close" title="ee">ee [ <span title="在线好友">0</span> ]</div>
+              </div>
+            </div>
+            <div class="wbim_list_friend" style="display: none;">
+              <div class="wbim_list_group">
+                <div class="wbim_chat_tips" style="display: none;">仅达人<a href="javascript:void(0);" target="_blank">创建</a>的私密群可群聊<a hidefocus="true" href="javascript:void(0);" class="wbim_icon_close_s"></a></div>
+                <ul>
+                  <li class="noresult">
+                    <div class="noresult_links">
+                      <p class="top"><span class="wbim_icon_tips"></span><em>您还没有可以群聊的微群<br />
+                        仅达人创建的微群可群聊</em></p>
+                      <p><span class="wbim_icon_g_c"></span><a target="_blank" href="javascript:void(0);">创建</a></p>
+                      <p><span class="wbim_icon_g_f"></span><a target="_blank" href="javascript:void(0);">查找</a></p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="wbim_list_friend" style="display: none;"></div>
+            <div class="wbim_list_friend">
+              <ul>
+              </ul>
+            </div>
+          </div>
+          <div class="wbim_list_pos"><a href="javascript:void(0);" class="wbim_clicknone"><span class="wbim_icon_arrd"></span></a> </div>
+        </div>
+      </div>
+      <!--所有联系人 end-->
+      <!--对话框架 begin-->
+      <div id="wbim_chat_box" style="position: absolute; right: 199px; bottom:24px; z-index: 1001; display: none;" class="wbim_chat_box wbim_chat_box_s">
+        <div class="wbim_chat_con">
+          <div class="wbim_tit">
+            <div class="wbim_titin">
+              <div class="wbim_tit_lf">
+                <p><span class="wbim_status_offline"></span><span class="txt"><a target="_blank" title="启己" href="http://weibo.com/zqzer?source=webim">启己</a></span><span class="bringin" style="display:none">正在输入</span></p>
+                <p style="display:none;"><span class="wbim_icon_group_tit"></span><span class="txt"><a target="_blank"></a><em class="txtg">在线成员(<a target="_blank" title="查看在线成员"></a>)</em></span></p>
+              </div>
+              <div class="wbim_tit_rt"><a title="最小化" class="wbim_icon_mini" href="javascript:void(0);"></a><a class="wbim_icon_close" href="javascript:void(0);" id="wbim_icon_closeX"></a></div>
+            </div>
+          </div>
+          <div style="display:none;position:absolute;top:24px;right:316px;z-index:1002;">
+            <div class="wbim_box_pop" style="width:316px;height:365px;"></div>
+            <div style="top:145px;left:50px;" class="wbim_confirm_box">
+              <div class="wbim_confirm_info">
+                <p class="wbim_confirm_p"><span class="wbim_icon_tips"></span><span class="txt"></span></p>
+                <p class="wbim_confirm_btn"><a href="javascript:void(0);" class="wbim_btn_c"><em>确定</em></a></p>
+              </div>
+            </div>
+          </div>
+          <div class="wbim_chat_lf" style="display: none; visibility: hidden;"><a href="javascript:void(0);" class="wbim_scrolltop_n"></a>
+            <div class="wbim_chat_friend_box">
+              <ul class="wbim_chat_friend_list">
+                <li class=" wbim_offline wbim_active">
+                  <div class="wbim_userhead"><img  src="images/1.jpeg"><span class="wbim_status_offline"></span></div>
+                  <div class="wbim_username">启己</div>
+                  <a class="wbim_icon_close_s" href="javascript:void(0);" ></a></li>
+              </ul>
+            </div>
+            <a onclick="return false;" href="javascript:void(0);" class="wbim_scrollbtm_n"></a></div>
+          <div class="wbim_chat_rt">
+            <div class="wbim_chat_up">
+              <div class="wbim_chat_tips" style="display: block;"><span class="wbim_icon_tips"></span><span>对方当前不在线或隐身。</span><a class="wbim_icon_close_s" href="javascript:void(0);" ></a></div>
+              <div class="wbim_chat_list" style="height: 198px; top: 24px;">
+                <dl style="display: block;">
+                  <dd class="wbim_msgr">
+                    <div class="wbim_msgpos">
+                      <div class="msg_time">18:12</div>
+                      <div class="msg_box">
+                        <p class="txt">我的留言，请回复</p>
+                      </div>
+                      <div class="msg_arr"></div>
+                    </div>
+                  </dd>
+                  <dd class="line"></dd>
+                </dl>
+              </div>
+            </div>
+            <div class="wbim_chat_toolbar">
+              <div class="wbim_chat_toolbarin">
+                <div class="wbim_face"><a href="javascript:void(0);" title="普通表情" class="wbim_tool_ctrl"><i class="wbim_icon_face"></i>表情</a>
+                  <div style="display:none;" class="wbim_face_box">
+                    <div class="wbim_face_tit">
+                      <div class="wbim_face_arr"></div>
+                      <div class="wbim_face_tit_lf">普通表情</div>
+                      <a href="javascript:void(0);" class="wbim_icon_close"></a></div>
+                  </div>
+                </div>
+                <div title="上传图片" class="wbim_face"><a class="wbim_tool_ctrl" href="javascript:void(0);"><i class="wbim_icon_img"></i>图片</a></div>
+                <div title="上传文件" class="wbim_face"><a class="wbim_tool_ctrl" href="javascript:void(0);"><i class="wbim_icon_doc"></i>文件</a></div>
+                <a hidefocus="true" href="javascript:void(0);" class="wbim_icon_group" style="margin-left: 10px; display: none;"></a><a target="_blank" title="聊天记录" class="wbim_history"><span class="wbim_icon_chatdoc"></span>聊天记录</a></div>
+            </div>
+            <div style="margin-top:1px;" class="wbim_chat_input">
+              <div class="wbim_chat_input_tips" style="display: none;">
+                <div style="display:none" class="wbim_tips_pos_n">
+                  <div class="wbim_tips_pic_n"><a href="javascript:void(0);"><img style="cursor:pointer" alt=""></a></div>
+                  <span class="wbim_p_arr"></span></div>
+                <div class="fl"></div>
+                <div class="fr"></div>
+              </div>
+              <textarea ></textarea>
+            </div>
+            <div class="wbim_chat_btm">
+              <div class="wbim_chat_btmin">
+                <div class="wbim_chat_btm_rt">
+                  <p class="wbim_tips_char"><span>200</span><span class="spetxt"></span></p>
+                  <div class="wbim_btn_send"><a title="发送" href="javascript:void(0);" class="wbim_btn_publish" >发送</a>
+                    <div class="wbim_btn_choose">
+                      <ul>
+                        <li class="curr"><span></span><em><a href="javascript:void(0);">按Enter键发送</a></em></li>
+                        <li class="line"><span></span><em></em></li>
+                        <li class=""><span></span><em><a href="javascript:void(0);">按Ctrl+Enter键发送</a></em></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="left: 130px; z-index: 100; top: 150px; position: absolute; display: none;">
+          <div class="wbim_confirm_box">
+            <div class="wbim_confirm_con">
+              <div class="wbim_confirm_info">
+                <p class="wbim_confirm_p"><span class="wbim_icon_ask"></span><span class="txt">提示：关闭会话窗口后，其中的未读私信将不再重复提醒。</span></p>
+                <p class="wbim_confirm_btn"><a class="wbim_btn_c" href="javascript:void(0);"><em>确认</em></a><a class="wbim_btn_n" href="javascript:void(0);"><em>取消</em></a></p>
+              </div>
+            </div>
+          </div>
+          <div class="wbim_box_pop" style="position:absolute; width:420px; height:365px; top:-126px; left:-130px;"></div>
+        </div>
+      </div>
+      <!--对话框架 end-->
+
+    </div>
+    <!--底部在线人员结束 end-->
+    <!-- <div id="wbim_box2" style="background:#00f; display:none; position:absolute; right:0; btttom:0;">1111</div>-->
+  </div>
+  <a href="http://www.ambow.com" class="ambowlogo" target="_blank"><img src="images/share/ambow.png" alt="技术支持-安博在线软件有限公司" width="100" /></a>
+  <!-- end hi_Container -->
+
+  <!-- end wrapper_body -->
+
+  <div>
+    <embed style="left: 0px; position: absolute;top: 5px; z-index:-1;" align="right" src="images/bodyIMG/sz.swf" width="100%" height="100%" type="application/x-shockwave-flash" wmode="transparent"></embed>
+  </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        //打开所有人列表
+        $("#wbim_min_box_col22").click(function () { $("#wbim_list_expand, #closeAll").fadeIn(250); });
+        $("#coweiboX").click(function () { $("#wbim_list_expand, #wbim_chat_box").fadeOut(250); });
+        $("#closeAll").click(function () { $("#wbim_list_expand, #wbim_chat_box, #closeAll").fadeOut(250); });
+        //打开对话框架
+        $("#qizhi").click(function () { $("#wbim_chat_box").fadeIn(250); });
+        $("#qizhi2").click(function () { $("#wbim_chat_box").fadeIn(250); });
+        $("#wbim_icon_closeX").click(function () { $("#wbim_chat_box").fadeOut(250); });
+
+        $("#mesedit").click(function () {
+            $("#mesconter").css("display", "block");
+        })
+        $("#mesconbtn").click(function () {
+            $("#mesconter").css("display", "none");
+        })
+    });
+
+</script>
+</body>
+</html>

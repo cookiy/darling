@@ -1,0 +1,58 @@
+/*----------------------------------------------------日程表------------------------------------------------------*/
+.siD{padding:0 0 0 27px; margin-right:30px; color:#ae0000;}
+.buM{padding:0 0 0 27px;}
+.calendar{ padding:20px 10px 0;margin: auto;width: 982px;}
+.calendar .dateBox{ height:76px;}
+.calendar .dateBox .pageTurning{ width:100px; float:left; }
+.calendar .dateBox .pageTurning a{ width:35px; height:29px; float:left; margin:20px auto 0;}
+.calendar .dateBox .pageTurning a.PageUp{margin-left:20px;}
+.calendar .datec{ margin-left:135px;}
+.calendar .datec li{ width:121px; float:left; line-height:40px; overflow:hidden;}
+.calendarCon{ clear:both; padding:0 0 10px;}
+.calendarCon .tabelbg{border-bottom:0;border-collapse: inherit;border-spacing: 1px;}
+.calendarCon .tabelbg th{height:92px;font-size:24px; line-height:92px;text-align:center;}
+.calendarCon .tabelbg td{height:92px; width:120px; }
+.calendarCon .tabelbg td span{margin:1px; position:relative;}
+.calendarCon .tabelbg td span .blue{ margin:1px; padding:2px;}
+.calendarCon .tabelbg td .tips{ position:absolute;bottom:16px; left:-100px; width:380px; padding:8px; z-index:9;}
+.calendarCon .tabelbg td .tipsBox{ position: relative;padding:10px;-moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px;}
+.calendarCon .tabelbg td .tip{ position: absolute;bottom:-8px; left:165px; width:15px; height:8px; display:block;}
+.calendarCon .tabelbg td p.time{font-size:18px;}
+.calendarCon .tabelbg td p a{font-size:24px;}
+.calendarCon .tabelbg td ul{ margin:0; padding:0;}
+.calendarCon .tabelbg td ul li{ padding-bottom:10px; }
+.calendarCon .tabelbg td .shareTable{}
+.calendarCon .tabelbg td .shareTable th{ font-weight:bold; padding:4px 0; text-align:right; background:none; height:inherit; width:auto; color:#000; font-size:16px; line-height:20px;}
+.calendarCon .tabelbg td .shareTable td{ padding:4px 0 4px 4px; background:none; height:inherit; width:auto;color:#000; font-size:18px; line-height:20px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			

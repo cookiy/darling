@@ -1,0 +1,40 @@
+@charset "UTF-8";
+/*begin*/
+.dateDiv { width:230px; float:left; padding-left:10px;}
+.dateInfo { margin-left:240px; padding-right:10px;}
+.dateInfoTopend{}
+.allScheduleUl{ background:#fff;-webkit-border-radius:5px;border-radius:5px; padding:10px;}
+.allScheduleUl li{ padding:4px; margin-bottom:6px; border-bottom:dotted 1px #ccc; line-height:24px;}
+.allScheduleUl li h6{ padding-bottom:2px; text-align:left;}
+.allScheduleUl li h6 em{float:right;margin-left:20px; font-weight:normal;}
+.allScheduleUl li h6 em .red{ font-weight:bolder; font-style:normal; padding:0 0 0 4px;}
+.allScheduleUl li h6 span{ float:right;font-weight:normal; color:#666;}
+.allScheduleUl li p{ line-height:18px;}
+.allScheduleUl li .bottom{ color:#333;}
+.allScheduleUl li .bottom a{ float:right; margin-left:10px;}
+.allScheduleUl li .bottom .time{}
+.allScheduleUl li .bottom{}
+.scheduleAdd{ background:#fff; padding:10px;-webkit-border-radius:5px;border-radius:5px;}
+.scheduleAddTable{}
+.scheduleAddTable th{ font-weight:bold; padding:4px 0; text-align:right;}
+.scheduleAddTable td{ padding:4px 0 4px 4px; text-align:left;}
+.scheduleAddTable{}
+/*--------------------------------------------------------------------------------------------*/
+.selsctmoni {width:80px; line-height:22px;height:22px; position:relative; float:left; margin-left:6px; }
+.selsctmoniA{display:block;border:1px solid #000; text-decoration:none; padding:0 8px;}
+.fleft{ float:left;}
+.scheduleAddName{ padding:8px; background:#f8f8f8; border:solid 1px #ccc; clear:both; overflow:hidden; margin-top:30px;}
+.scheduleAddName li{ float:left; padding:2px 4px;background:#ccc; border:solid 1px #000; margin-right:4px;}
+.scheduleAddName li a{ text-decoration:none; font-family: Verdana, Geneva, sans-serif; font-size:12px; font-weight:bolder; padding-left:2px; color:#fff;}
+.selsctmoni li .line{ background:#ddd; height:1px; overflow:hidden;}
+#menu, #menu ul {padding:8px 0 8px 4px; border:1px solid #000; display:; position:absolute; top:22px; left:-1px; background:#ccc; width:76px; filter: alpha(opacity=0); opacity: 0;}
+#menu li {position:relative; }
+#menu ul {position:absolute; left:76px; top:0;}
+#menu li a {display:block; }
+#menu li a:hover { background:#f8f8f8; }
+#menu li h2.active { background: #fff; border: 0; }
+#menu li h2.active span { border-color: #fff #fff #fff #333; }
+.msDay{ background:#f8f8f8;border:solid 1px #ccc; padding:10px; margin:4px 0;}
+.msDay span{ padding-right:8px;}
+.msDayTwo{ clear:both; margin-top:8px;}
+/*--------------------------------------------------------------------------------------------*/

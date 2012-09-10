@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OA</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="javascripts/jquery.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function() {
+         $.ajax({
+                     type : "POST",
+                     url : "/passport/edit?user22",
+                     success : function(data) {
+                             $('#result').html('<ul><li>'+data.name+'</li><li>'+data.age+'</li><li>'+data.department+'</li><li>'+data.address+'</li><li>'+data.tele+'</li></ul>');
+                     }
+                 })
+                 })
+    </script>
+  </head>
+  <body>
+  <a href="/signin">登陆测试</a>
+  <a href="/signout">登出</a>
+  <a href="/date">日程</a>
+  <a href="/passport">通讯</a>
+  <a href="/equipment">设备</a>
+  <a href="/note">公文</a>
+  <a href="/notes">其他公文</a>
+  <a href="/sms">短信</a>
+  <a href="/party">组织</a>
+  <a href="/party">代办工作</a>
+  <a href="/notice">通知</a>
+  <a href="/start">上传</a>
+    <h1 userid="<%= uid %>">欢迎你：<%= name %></h1>
+    你的头像：<img src="<%= uid_photo_url %>">
+    <div>显示的通讯录信息</div>
+    <div id="result"></div>
+    <div id="result"></div>
+    <div>显示今日日程</div>
+  </body>
+</html>

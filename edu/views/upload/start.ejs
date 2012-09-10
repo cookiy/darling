@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OA</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+      </head>
+      <body>
+              <div style="background:#f30; color:#000; height:100px; width:100%;">
+        		    <%= error %>
+        		</div>
+<form action="/upload" enctype="multipart/form-data" method="post">
+    <input type="file" name="upload" multiple="multiple">
+   <input type="submit" value="Upload file" />
+</form>
+  </body>
+
+</html>

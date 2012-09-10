@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>通讯录</title>
+    <link href="stylesheets/side_style.css" rel="stylesheet" type="text/css" />
+    <link href="stylesheets/hi_colorA.css" rel="stylesheet" type="text/css"  />
+    <link href="stylesheets/share.css" rel="stylesheet" type="text/css" />
+    <link href="stylesheets/addressBook.css" rel="stylesheet" type="text/css" />
+    <script src="javascripts/JQLib/jquery-1.7.2.min.js" type="text/javascript"></script>
+</head>
+<body class="scheduleBody">
+
+<div class="scheduleSection">
+  <div class="colorbg">
+    <div class="lineTop"></div>
+
+    <div class="addressBook">
+      <h4 class="conTop orgStrIco"><span><input type="submit" value="管理" class="btn btn_green overlay_content" onclick="location.href='/edituser'" /></span>通讯录</h4>
+      <div class="titTop">
+        <select class="" id="select1" onchange="SelectChange();">
+
+        </select>
+      </div>
+
+      <div>
+        <ul class="addressBookUL" id="ulinfo">
+        </ul>
+
+      </div>
+    </div>
+
+
+  </div>
+  <div class="clearer"></div>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+    //准备数据---初始化的数据源
+    var _tempobj = [{ name: '小张', department: '管理处', imgurl: 'images/user_headimg.gif', otherPhone: '0888', chushi: 'a', zhiwu: 'b', phone: '13241526699', phone1: '010-88425631', address: '朝阳区望京西', phone2: '010-85564722', menpaihao: '666', qqnumber: '68976543 ', email: 'xiaozhang@126.com' }, { name: '小张', department: '管理处', imgurl: 'images/user_headimg.gif', otherPhone: '0888', chushi: 'a', zhiwu: 'b', phone: '13241526699', phone1: '010-88425631', address: '朝阳区望京西', phone2: '010-85564722', menpaihao: '666', qqnumber: '68976543 ', email: 'xiaozhang@126.com' }, { name: '小张', department: '管理处', imgurl: 'images/user_headimg.gif', otherPhone: '0888', chushi: 'a', zhiwu: 'b', phone: '13241526699', phone1: '010-88425631', address: '朝阳区望京西', phone2: '010-85564722', menpaihao: '666', qqnumber: '68976543 ', email: 'xiaozhang@126.com' }, { name: '小张', department: '管理处', imgurl: 'images/user_headimg.gif', otherPhone: '0888', chushi: 'a', zhiwu: 'b', phone: '13241526699', phone1: '010-88425631', address: '朝阳区望京西', phone2: '010-85564722', menpaihao: '666', qqnumber: '68976543 ', email: 'xiaozhang@126.com'}];
+    var jsonobj =null;
+    $.ajax({
+        type: "get",
+        async: true,
+        url: '/GetAllSysUser',
+        data: {},
+        success: function (data) {
+            if(data=="" || data == null){
+                alert("请求服务器失败!");
+            }
+            else{
+                if(data.flag=="true")
+                {
+                    jsonobj = data.info;
+                }
+            }
+        },
+        error: function (errorMessage) {
+            alert(errorMessage);
+        }
+    });
+    //数据展示html
+    function ShowUserInfo(tempobj) {
+        var html = "";
+        for (var i = 0; i < tempobj.length; i++) {
+            html += "<li>";
+            html += "<div class='leftPhoto'><img src='" + tempobj[i].imgurl + "' />" + tempobj[i].name + "-" + tempobj[i].department + "<span><em>" + tempobj[i].otherPhone + "</em></span></div>";
+            html += "<div class='info'>";
+            html += "<div class='left'>";
+            html += "<p class='cs'><b>处室：</b>" + tempobj[i].chushi + "</p>";
+            html += "<p class='zw'><b>职务：</b>" + tempobj[i].zhiwu + "</p>";
+            html += "<p class='phone'><b>手机：</b>" + tempobj[i].phone + "</p>";
+            html += "<p class='zPhone'><b>座机：</b>" + tempobj[i].phone1 + "</p>";
+            html += "<p class='address'><b>住址：</b>" + tempobj[i].address + "</p>";
+            html += "</div>";
+            html += "<div class='right'>";
+            html += "<p class='jtPhone'><b>家庭电话：</b>" + tempobj[i].phone2 + "</p>";
+            html += "<p class='houseNo'><b>门牌号：</b>" + tempobj[i].menpaihao + "</p>";
+            html += "<p class='qq'><b>Q  Q：</b>" + tempobj[i].qqnumber + "</p>";
+            html += "<p class='email'><b>Email：</b>" + tempobj[i].email + "</p>";
+            html += "</div>";
+            html += "</div>";
+            html += "</li>";
+        }
+        return html;
+    }
+
+    //UL里面的信息展示
+    $("#ulinfo").append($(ShowUserInfo(jsonobj)));
+
+    //select里面的信息展示
+    var selectData = [{ value: '0', text: '全部员工' }, { value: '1', text: '司领导' }, { value: '2', text: '综合部' }, { value: '3', text: '培养处' }, { value: '4', text: '培训处' }, { value: '5', text: '管理处' }, { value: '6', text: '待遇处' }, { value: '7', text: '师德处'}];
+    function ShowSelectInfo() {
+        var tempselect = "";
+        for (var i = 0; i < selectData.length; i++) {
+            tempselect += "<option value='" + selectData[i].value + "'>" + selectData[i].text + "</option>";
+        }
+        return tempselect;
+    }
+    $("#select1").append($(ShowSelectInfo()));
+
+    //select 的 onchange事件
+    function SelectChange() {
+        var data = "";
+        $("#ulinfo").find("li").each(function () {
+            $(this).remove();
+        })
+        if ($("#select1").val() == "1") {
+            data = [{ name: '司领导1', department: '司领导', imgurl: 'images/user_headimg.gif', otherPhone: '0888', chushi: 'a', zhiwu: 'b', phone: '13241526699', phone1: '010-88425631', address: '朝阳区望京西', phone2: '010-85564722', menpaihao: '666', qqnumber: '68976543 ', email: 'xiaozhang@126.com' }, { name: '司领导2', department: '司领导', imgurl: 'images/user_headimg.gif', otherPhone: '0888', chushi: 'a', zhiwu: 'b', phone: '13241526699', phone1: '010-88425631', address: '朝阳区望京西', phone2: '010-85564722', menpaihao: '666', qqnumber: '68976543 ', email: 'xiaozhang@126.com' }, { name: '司领导3', department: '司领导', imgurl: 'images/user_headimg.gif', otherPhone: '0888', chushi: 'a', zhiwu: 'b', phone: '13241526699', phone1: '010-88425631', address: '朝阳区望京西', phone2: '010-85564722', menpaihao: '666', qqnumber: '68976543 ', email: 'xiaozhang@126.com'}];
+            $("#ulinfo").append($(ShowUserInfo(data)));
+            return;
+        }
+        if ($("#select1").val() == "2") {
+            data = [{ name: '综合部1', department: '综合部', imgurl: 'images/user_headimg.gif', otherPhone: '0888', chushi: 'a', zhiwu: 'b', phone: '13241526699', phone1: '010-88425631', address: '朝阳区望京西', phone2: '010-85564722', menpaihao: '666', qqnumber: '68976543 ', email: 'xiaozhang@126.com' }, { name: '综合部2', department: '综合部', imgurl: 'images/user_headimg.gif', otherPhone: '0888', chushi: 'a', zhiwu: 'b', phone: '13241526699', phone1: '010-88425631', address: '朝阳区望京西', phone2: '010-85564722', menpaihao: '666', qqnumber: '68976543 ', email: 'xiaozhang@126.com' }, { name: '综合部3', department: '综合部', imgurl: 'images/user_headimg.gif', otherPhone: '0888', chushi: 'a', zhiwu: 'b', phone: '13241526699', phone1: '010-88425631', address: '朝阳区望京西', phone2: '010-85564722', menpaihao: '666', qqnumber: '68976543 ', email: 'xiaozhang@126.com'}];
+            $("#ulinfo").append($(ShowUserInfo(data)));
+            return;
+        }
+        else {
+            data = [{ name: '其他部门1', department: '其他部门', imgurl: 'images/user_headimg.gif', otherPhone: '0888', chushi: 'a', zhiwu: 'b', phone: '13241526699', phone1: '010-88425631', address: '朝阳区望京西', phone2: '010-85564722', menpaihao: '666', qqnumber: '68976543 ', email: 'xiaozhang@126.com' }, { name: '其他部门2', department: '其他部门', imgurl: 'images/user_headimg.gif', otherPhone: '0888', chushi: 'a', zhiwu: 'b', phone: '13241526699', phone1: '010-88425631', address: '朝阳区望京西', phone2: '010-85564722', menpaihao: '666', qqnumber: '68976543 ', email: 'xiaozhang@126.com' }, { name: '其他部门3', department: '其他部门', imgurl: 'images/user_headimg.gif', otherPhone: '0888', chushi: 'a', zhiwu: 'b', phone: '13241526699', phone1: '010-88425631', address: '朝阳区望京西', phone2: '010-85564722', menpaihao: '666', qqnumber: '68976543 ', email: 'xiaozhang@126.com'}];
+            $("#ulinfo").append($(ShowUserInfo(data)));
+            return;
+        }
+    }
+</script>

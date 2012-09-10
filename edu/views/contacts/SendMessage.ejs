@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="stylesheets/side_style.css" rel="stylesheet" type="text/css" />
+    <link href="stylesheets/hi_colorA.css" rel="stylesheet" type="text/css"  />
+    <link href="stylesheets/share.css" rel="stylesheet" type="text/css" />
+    <link href="stylesheets/message.css" rel="stylesheet" type="text/css" />
+    <script src="javascripts/JQLib/jquery-1.7.2.min.js" type="text/javascript"></script>
+</head>
+<body class="scheduleBody">
+<!--scheduleSection begin-->
+<div class="scheduleSection">
+  <div class="colorbg">
+    <div class="lineTop"></div>
+    <!--right begin-->
+    <div class="addressBook">
+      <h4 class="conTop orgStrIco"><a href="#" class="icons"></a>短信</h4>
+      <div class="titTop">
+        <ul class="sms">
+          <li class="one"><a href="javascript:void(0);" class="hover">发短信</a></li>
+          <li class="two"><a href="/records">短信记录</a></li>
+          <li class="three"><a href="/userlist">联系人</a></li>
+        </ul>
+        <div class="clear"></div>
+      </div>
+      <!--smsBox begin  -->
+
+      <div class="smsBox">
+        <div class="smsBoxbg">
+          <div class="boxconLeft">
+            <div class="title">收信人<span>共 <i class="color_red">70</i> 字</span></div>
+            <div class="smsNameBox">
+              <ul id="ullist" class="smsNameUl"></ul>
+              <p class="color_gray">每次群发最多200人</p>
+              <a href="#" id="nameBox" class="nameBox">+</a>
+              <div class="nameBoxCon">
+                <h5>联系人(<span id="usercount"></span>)</h5>
+                <ul id="nav" class="nav">
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="boxconLeft">
+            <div class="title">短信内容<span>共 <i class="color_red">70</i> 字</span></div>
+            <div class="smsNameBox">
+              <textarea class="smsNameUl">教师工作司祝各位领导及同事教师节快乐！</textarea>
+              <p class="color_gray">70个字（含标点符号）为1条短信，超过可拆分发送</p>
+              <div class="boxconbtn"><input type="button" value="" class="sendSMS" /></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!--right end-->
+  </div>
+  <div class="clearer"></div>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+    //分组数据
+    var arr = ["分组1", "分组2", "分组3", "分组4"];
+
+    //每个组的相应的用户
+    var arr_1 = ["用户_13826281933", "用户1_13826281933", "用户2_13826281933", "用户3_13826281933", "用户4_13826281933", "用户_13826281933", "用户_13826281933","asd_123123"];
+    var arr_2 = ["用户_13826281933", "用户_13826281933", "用户_13826281933", "用户_13826281933"];
+    var arr_3 = ["用户_13826281933", "用户_13826281933", "用户_13826281933", "用户_13826281933", "用户_1382621111"];
+    var arr_4 = ["用户_bbbb", "用户_ssss", "用户_xxxxx"];
+
+    var arrAll = [arr_1, arr_2, arr_3, arr_4];
+
+    //联系人总数
+    var count = 0;
+    for (var i = 0; i < arrAll.length; i++) {
+        count += arrAll[i].length;
+    }
+    $("#usercount").text(count);
+
+    //生成HTML并展现
+    var html = "";
+    var num = 0;
+
+    for (var i = 0; i < arr.length; i++) {
+        html += "<li tag='lis' onclick='ClickLi(this);'>";
+        html += "<h2><span>" + arr[i] + "（" + arrAll[i].length + "）</span></h2>";
+        html += "<ul tag='uls' style='display:none'>";
+        html += "全选:<input type='checkbox' tag='checkall' />";
+        if (num ==i) {
+            for (var j = 0; j < arrAll[i].length; j++) {
+                html += "<li><input type='checkbox' name='checkone' tag='" + arrAll[i][j].split('_')[0] + "(" + arrAll[i][j].split('_')[1] + ")'/>" + arrAll[i][j].split('_')[0] + "(" + arrAll[i][j].split('_')[1] + ")<span></span> ";
+            }
+        }
+        html += "</ul></li>";
+        num++;
+    }
+    $("#nav").append($(html));
+
+    function ClickLi(obj) {
+        $("#nav li[tag=lis]").each(function (i) {
+            if (this == obj) {
+                if ($(this).children("ul[tag=uls]").css("display") == "none") {
+                    $(this).children("ul[tag=uls]").css("display", "block").animate({ height: 34 * $(this).children("ul[tag=uls]").children().length }, "slow");
+                }
+                else {
+                    $(this).children("ul[tag=uls]").css("display", "none").animate({ height: 0 }, "slow");
+                }
+
+            }
+            else {
+                $(this).children("ul[tag=uls]").css("display", "none").animate({ height: 0 }, "slow");
+            }
+        })
+    }
+
+    //分组的全选事件
+    $("#nav li[tag=lis] input[type=checkbox][tag=checkall]").each(function () {
+        $(this).click(function () {
+            if (this.checked) {
+                var _arr = new Array();
+                $(this).parent().children().find("input[type=checkbox][name=checkone]").each(function () {
+                    this.checked = true;
+                    _arr.push($(this).attr("tag"));
+                })
+                var tempval = $("#ullist").text();
+                //如果联系人的输入框为空
+                if (tempval == "") {
+                    var _tempval = "";
+                    for (var i = 0; i < _arr.length; i++) {
+                        _tempval += _arr[i] + ";";
+                    }
+                    $("#ullist").text(_tempval);
+                }
+                //过滤
+                else {
+                    var temparr = $("#ullist").text().split(';');
+                    if (temparr[temparr.length - 1] == "") {
+                        temparr = temparr.delByIndex([temparr.length - 1]);
+                    }
+                    for (var i = 0; i < _arr.length; i++) {
+                        if (!temparr.isExist(_arr[i])) {
+                            temparr.push(_arr[i]);
+                        }
+                        else {
+                            temparr = temparr;
+                        }
+                    }
+                    var temp = "";
+                    for (var i = 0; i < temparr.length; i++) {
+                        temp += temparr[i] + ";";
+                    }
+                    $("#ullist").text(temp);
+                }
+            }
+            else {
+                $(this).parent().children().find("input[type=checkbox][name=checkone]").each(function () {
+                    this.checked = false;
+                })
+            }
+        })
+    })
+
+    //阻止事件冒泡 以及添加数据到ul里--重复项不添加
+    $("#nav li[tag=lis] input[type=checkbox][name=checkone]").each(function () {
+        $(this).click(function (event) {
+            event.stopPropagation();
+            var tempval = $("#ullist").text();
+            var addval = $(this).attr("tag");
+            if (tempval == "") {
+                $("#ullist").text(addval + ";");
+            }
+            else {
+                temparr = tempval.split(';');
+                if (temparr[temparr.length - 1] == "") {
+                    temparr = temparr.delByIndex([temparr.length - 1]);
+                }
+                if (!temparr.isExist($(this).attr("tag"))) {
+                    temparr.push($(this).attr("tag"));
+                }
+                else {
+                    temparr = temparr;
+                }
+                var temp = "";
+                for (var i = 0; i < temparr.length; i++) {
+                    temp += temparr[i] + ";";
+                }
+                $("#ullist").text(temp);
+            }
+        })
+        //li阻止事件冒泡
+        $(this).parent().click(function (event) {
+            event.stopPropagation();
+        })
+
+        //全选按钮的冒泡事件
+        $(this).parent().parent().children("[type=checkbox][tag=checkall]").each(function () {
+            $(this).click(function (event) {
+                event.stopPropagation();
+            })
+        })
+    })
+
+    //去除数组里的重复项 返回新的数组
+    Array.prototype.unique = function () {
+        var temparr = new Array();
+        this.sort();
+        for (i = 0; i < this.length; i++) {
+            if (this[i] == this[i + 1]) {
+                continue;
+            }
+            temp[temp.length] = this[i];
+        }
+        return temparr;
+    }
+
+    //判断某项在数组里是否存在  true代表存在 false代表不存在
+    Array.prototype.isExist = function (val) {
+        var bl = false;
+        for (var i = 0; i < this.length; i++) {
+            if (val == this[i]) {
+                bl = true;
+            }
+        }
+        return bl;
+    }
+
+    //js删除数组里的index项  索引从0开始  返回新的数组
+    Array.prototype.delByIndex = function (index) {
+        if (index < 0) {
+            return this;
+        }
+        else {
+            return this.slice(0, index).concat(this.slice(index + 1, this.length));
+        }
+        /*
+　　　    concat方法：返回一个新数组，这个新数组是由两个或更多数组组合而成的。
+　　　　　　　　　    这里就是返回this.slice(0,n)/this.slice(n+1,this.length)
+　　 　　　　　　    组成的新数组，这中间，刚好少了第n项。
+　　　    slice方法： 返回一个数组的一段，两个参数，分别指定开始和结束的位置。
+        */
+    }
+</script>

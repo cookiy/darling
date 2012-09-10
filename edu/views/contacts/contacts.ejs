@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<title>passport</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel='stylesheet' href='/stylesheets/hi_default.css' />
+<script src="javascripts/JQLib/jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+  var jsonData;
+  $.ajax({
+          type : "POST",
+          dataType: "text",
+          global: false,  //Ajax的范围
+          async: false,   //异步执行
+          url : "/contacts/loadalluser",
+          success: function (strReult) {
+            jsonData=eval("("+strReult+")"); 
+             alert("done!");
+              for(var i=0;i<jsonData.person.length;i++){
+                 rainAreaMaxHtml+=jsonData.person[i].name+jsonData.person[i].age;
+                 $("#result").append(rainAreaMaxHtml);
+              }
+          }, 
+          error: function () {
+            alert("error!");
+          }
+    });
+  //测试添加群组
+  $('#btn').click(function() {
+   $.ajax({
+          type : "GET",
+          dataType: "json",
+          global: false,  //Ajax的范围
+          async: false,   //异步执行
+          url : "/contacts/addSnsGroupGet",
+          data:{'UserName': 'cookiy' ,'id': '11','uid': '001' }, 
+          beforeSend: function () {
+            alert("loading!");     
+          }, 
+          success: function (data) {
+            alert("从服务器走了个来回!"); 
+         }, 
+          error: function () {
+            alert("error!");
+          }
+    });
+ });
+    $('#sns').click(function() {
+   $.ajax({
+          type : "GET",
+          dataType: "json",
+          global: false,  //Ajax的范围
+          async: false,   //异步执行
+          url : "/GetAllSysUser",
+          beforeSend: function () {
+            alert("loading!");     
+          }, 
+          success: function (data) {
+            if(data.flag == "false"){
+              alert("从服务器走了个来回,但是失败了"); 
+            }
+            else{
+              alert("从服务器走了个来回,OK"); 
+              alert(data); 
+            }  
+         }, 
+          error: function () {
+            alert("error!");
+          }
+    });
+ });
+
+  
+  })
+</script>
+</head>
+<body>
+<a href="/index">返回</a>
+<div id="result"></div>
+<div id="btn">click</div>
+<div id="sns">queryalluser</div>
+</body>
+</html>

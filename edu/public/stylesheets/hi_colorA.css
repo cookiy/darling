@@ -1,0 +1,253 @@
+@charset "UTF-8";
+/*--desk style--*/
+html, body, .wrapper_body { width:100%; height:100%;}
+body.bgindex{background:#122d7a url(../images/bodyIMG/1.jpg) no-repeat; overflow:hidden;}
+.wrapper_body { position: relative; height:700px; width:100%;}
+.ie7_0 body { position:absolute; top:0; left:0; }
+/*a { color:#f1f1f1; }*/
+.wrapper_body {/*background:#122d7a url(../images/bodyIMG/1.jpg) no-repeat;*/}
+#desktop { border:0 solid red; color:#333; }
+#leftBar { background:none; }
+/*--appbutton style--*/
+	.appbutton .appbtn_title, .appbutton .apptitle_en { color:#fff; }
+.app_mini_blue,.app_mini_yellow,.app_mini_gre{width:200px; height:185px; float:left; clear:both;}	
+.app_mini_blue { background:#33c0e5;}
+.app_mini_yellow { background:#e8a419;margin-top:1px;}
+/*.app_mini_pink { background:#d92fd7; width:200px; height:140px; float:left; }*/
+.buttonItemList .buttonListbox{ background:url(../images/share/indexLR.png) no-repeat;}
+.buttonItemList .buttonListboxOne{ background-position:left top;}
+.buttonItemList .buttonListboxTwo{ background-position:right top;}
+.app_mini_gre { background:#53c02c;margin-top:1px;}
+.app_big_ora,.app_big_blue,.app_big_gre { background: url(../images/share/bgL.png) no-repeat left top;}
+.buttonItemList .help_appbutton .appbutton_imgL {background: url(../images/share/bgR.png) no-repeat right top;}
+.app_big_gre .appbutton_img{background: url(../images/share/gztd.png) no-repeat center center;}
+.app_big_blue .appbutton_img{background: url(../images/share/rcb.png) no-repeat center center;}
+.app_big_ora .appbutton_img{background: url(../images/share/dbgz.png) no-repeat center center;}
+.app_big_gre .more{background:url(../images/share/gremore.png) no-repeat;}
+.app_big_blue .more{background:url(../images/share/bluemore.png) no-repeat;}
+.app_big_ora .more{background:url(../images/share/redmore.png) no-repeat;}
+	/*--app_button color style--*/
+	.sky_blue { background-position:0 0; }
+.orange { background-position:0 -110px; }
+.green { background-position:0 -220px; }
+.grassgreen { background-position:0 -1210px; }
+.grassgreen:hover { background-position:0 -1320px; }
+.deepBlue { background-position:0 -330px; }
+.magenta { background-position:0 -440px; }
+.addapp { background-position:0 -1100px; opacity:.3; filter:alpha(opacity=30); }
+.yellow { background-position:0 -1432px; }
+.orange:hover { background-position:0 -660px; }
+.yellow:hover { background-position:0 -1542px; }
+.green:hover { background-position:0 -770px; }
+.deepBlue:hover { background-position:0 -880px; }
+.magenta:hover { background-position:0 -990px; }
+.addapp:hover { opacity:.6; *filter:alpha(opacity=60);
+}
+/*.app_big.sky_blue {background:url(../images/icon/c2.png) 10px 16px no-repeat;}
+.app_big.orange {background:url(../images/icon/c3.png) 10px 16px no-repeat;}*/
+.app_big.green { background-position:-110px -220px; }
+/*.app_big.deepBlue {background:url(../images/icon/c1.png) 10px 16px no-repeat;}*/
+.app_big.magenta { background-position:-110px -440px; }
+.sky_blue:hover { background-position:0 -550px; }
+/*.app_big.sky_blue:hover {background:url(../images/icon/c2.png) 10px 16px no-repeat; }*/
+.app_big.orange:hover { background-position:-110px -660px; }
+.app_big.green:hover { background-position:-110px -770px; }
+/*.app_big.deepBlue:hover {background:url(../images/icon/c1.png) 10px 16px no-repeat; }*/
+.app_big.magenta:hover { background-position:-110px -990px; }
+/*--ico style--*/
+	.primary_ico { background-position:0 0; text-indent: -9999px; }
+.junior_ico { background-position:0 -48px; }
+.highschool { background-position:0 -96px; }
+.university { background-position:0 -144px; }
+.jobs { background-position:0 -192px; }
+.course { background-position:0 -240px; }
+.help_img { background-position:0 -432px; }
+/*.passport_ico { background-position:0 -288px; float:left; margin:15px 0 0 10px; }
+.study_ico { background-position:0 -336px; float:left; margin:15px 0 0 10px; }
+.ability_ico { background-position:0 -384px; }
+.applying_ico { background-position:0 -485px; }*/
+.app_mini_blue_ico,.app_mini_yellow_ico,.app_mini_pink_ico,.app_mini_gre_ico{ width:200px; height:120px;}
+.app_mini_blue_ico { background:url(../images/icon/r1.png) no-repeat center 30px;}
+.app_mini_yellow_ico {background:url(../images/icon/r2.png) no-repeat center 30px;}
+.app_mini_pink_ico { background:url(../images/icon/r3.png) no-repeat center 30px; }
+.app_mini_gre_ico {  background:url(../images/icon/r4.png) no-repeat center 30px;}
+
+
+.styleico1 { background:url(../images/icon/zz.png) no-repeat center;}
+.styleico2 { background:url(../images/icon/dx.png) no-repeat center;}
+.styleico3 { background:url(../images/icon/txl.png) no-repeat center;}
+.styleico4 { background:url(../images/icon/wj.png) no-repeat center;}
+.styleico5 { background:url(../images/icon/sbdj.png) no-repeat center;}
+.styleico6 { background:url(../images/icon/tz.png) no-repeat center;}
+/*--rightBar 工具栏--*/
+	#loginbox { color:#f1f1f1; }
+#loginbox a:hover { color:#fbd848; }
+#loginbox a.user_headimg { border:1px solid #0e548a; }
+.rightTool .close_toolbtn { background:url(../images/app_button_bg.png) no-repeat -110px -1100px; }
+/*--时钟工具--*/
+	#timeTool { color:#fff; }
+/*--广告幻灯--*/
+#imgVeiw { background:url(../images/righttool_bg.png) no-repeat 0 -110px;display:none!important;}
+#imgVeiw .carousel .carousel-next { background:#fff url(../images/pre_next.png) right 0 no-repeat;_background:#fff url(../images/pre_next.gif) right 0 no-repeat; right:10px;display:none!important;}
+#imgVeiw .carousel .carousel-previous { background:#fff url(../images/pre_next.png) 0 0 no-repeat;_background:#fff url(../images/pre_next.gif) 0 0 no-repeat; right:27px;display:none!important; }
+/*--滑屏 方向按钮&屏数示意 --*/
+.carousel-tabs a { background:url(../images/navigator.png) no-repeat;_background:url(../images/navigator.gif) no-repeat; font-size:0;display:none!important; }
+.carousel-tabs .carousel-active-tab a { background:url(../images/navigator.png) no-repeat 0 -16px;_background:url(../images/navigator.gif) no-repeat 0 -16px;display:none!important;}
+.desk_arrow a.carousel-disabled { display:none;display:none!important;}
+.desk_arrow a { background:url(../images/pre_next.png) no-repeat 0 -174px;_background:url(../images/pre_next.gif) no-repeat 0 -174px; display:block; width:34px; height:34px; text-indent:-5000px; outline:none;display:none!important;}
+.desk_arrow a.carousel-next { background-position: 0 -214px;display:none!important;}
+.desk_arrow a.carousel-next:active, .desk_arrow a.carousel-next:hover { background-position:0 -294px;display:none!important;}
+.desk_arrow a.carousel-prev:active, .desk_arrow a.carousel-prev:hover { background-position:0 -254px;display:none!important;}
+/* --首页幻灯 prev, next, prevPage and nextPage buttons -- */
+a.hi_minbrowse { background:url(../images/pre_next.png) no-repeat;_background:url(../images/pre_next.gif) no-repeat; }
+/* --设置退出图标 -- */
+.systemicon { background:url(../images/icons/system.png) no-repeat; text-indent: -9999px; display: block; width: 50px; height: 17px; line-height:17px; color:#fff; }
+.closeicon { background:url(../images/icons/close.png) no-repeat; text-indent: -9999px; display: block; width: 50px; height: 17px; line-height:17px;color:#fff; }
+.xialaicon { background:url(../images/icons/xiala.png) no-repeat; text-indent: -9999px; display: block; width: 8px; height: 4px; line-height:34px; color:#fff;}
+#timeTool .today a{ color:#fff;}
+/*-----------messageBoard mood 心情标签-----------------*/
+.messageMood{ background:url(../images/share/xxq.png) no-repeat 10px 0; position:relative;}
+.messageMood p{ color:#fff;}
+.mesconter{ background:url(../images/share/black.png); padding:10px; width:300px; position:absolute; top:40px;left:20px; border:1px solid #333;}
+.mesedit{ position: absolute;top:6px;left:126px; width:24px; height:24px; background:url(../images/share/edit.png) no-repeat; overflow:hidden; text-indent:-999em;}
+.mesconter textarea{width:240px; height:46px; float:left; padding:2px;}
+.mesconter input[type="button"]{width:50px; height:50px; float:right; text-align:center;}
+		
+/*-------------------------------------------------------后加 短信模块---------------------------------------------------------------------------------*/
+.addressBook {background:#fff url(../images/share/bgxTop.png) repeat-x top left;}
+/*----中间内容标题----*/
+.conTop{ border-bottom:1px #e0e4e4 dotted; color:#010000;}
+.conTop span{ float:right; margin:8px 10px 0;*margin:0px 10px 0}
+.conTop .icons{background:url(../images/icons.png) no-repeat 0 -480px;}
+.titTop{background:#f1f1f1;}
+.addBtn{ background:url(../images/share/add.png);color:#fff;}
+/*发短信*/
+.sms{ float:left;background:url(../images/message/messageTitbg.png) no-repeat 0 -44px;}
+.sms li{float:left;}
+.sms li a{color:#000;}
+.sms li.one a:hover,.sms li.one a.hover{background:url(../images/message/messageTitbg.png) 0 0; color:#fff;}
+.sms li.two a:hover,.sms li.two a.hover{background:url(../images/message/messageTitbg.png) -89px 0;color:#fff;}
+.sms li.three a:hover,.sms li.three a.hover{background:url(../images/message/messageTitbg.png) -190px 0;color:#fff;}
+.smsBox{background:url(../images/message/bgxbox.png) repeat-x;border:solid 1px #d1d1d1;}	  
+.boxconLeft .title{color:#000;}	  
+.sendSMS{ background:url(../images/message/btn.png) no-repeat; }
+.nameBox{background:url(../images/icons.png) no-repeat 0 -440px;}	  
+.smsNameUl{background:#fff url(../images/message/bgxbox.png) repeat-x;border:solid 2px #d1d1d1;}
+.nameBoxCon{border:solid 1px #ccc;background:#fff;}
+.nameBoxCon h5{background:url(../images/message/namebg.png) repeat-x; border-bottom:solid 1px #ccc;}
+.nameBoxCon a.soName{background:url(../images/message/namebg.png) repeat-x;border-bottom:solid 1px #ccc;}
+.nameBoxCon .nav { color:#000;}
+.nameBoxCon .nav h2 {border-bottom: 1px #666 solid; background:#f2f2f2; }
+.nameBoxCon .nav .active { background:url(../images/message/namebg.png) repeat-x;color:#c00;}
+.nameBoxCon .nav ul li a {color:#6b7f97;}
+/*短信记录*/
+.smsRecord{border-bottom:dotted 1px #ccc;}
+.smsRecord dt{ background:#90c2ff;border-bottom:solid 1px #fff;}
+.smsRecord dt p{color:#fff;}
+.smsRecord dd{background:#f1f1f1;border-bottom:solid 1px #fff;}
+.smsRecord dd span .tipsBox{background:#fff; border:solid 1px #ccc;-moz-box-shadow:0 0 5px rgba(196, 196, 196, 0.9); -webkit-box-shadow:0 0 5px rgba(196, 196, 196, 0.9); box-shadow:0 0 5px rgba(196, 196, 196, 0.9);}
+.smsRecord dd span .tip{background:url(../images/icons.png)0 -530px;}
+.smsRecord dd a.del{background:url(../images/message/btn.png) 0 -60px;}
+.smsRecord dd a.del:hover{background:url(../images/message/btn.png) -73px -60px; color:#fff;}
+.smsRecord dd.bg{ background:#fbfbfb;}
+/*----------------------------------------------------通知模块------------------------------------------------------*/
+.notice{background: url(../images/notice/conbg.png) repeat-x; }
+.noticeLeft{background: url(../images/notice/leftbg.png) no-repeat; }
+.noticeRight{background: url(../images/notice/rightbg.png) no-repeat top right; }
+/*left*/
+a.topPage{ background:url(../images/notice/img.png) no-repeat -105px 0;}
+a.btomPage{background:url(../images/notice/img.png) no-repeat 0 -59px;}
+.noticeRelease{ background:#eee; border:solid 1px #ddd;}
+.noticeRelease span{ background:url(../images/icons.png) no-repeat 0 -800px;}
+.stday li a{border:solid 1px #ddd;}
+.stday li a em{background:url(../images/notice/img.png) no-repeat 0 -186px; color:#fff;}
+.stday li a span{ color:#999;}
+.stday li a.active{background:#e9f2ff;-moz-box-shadow:0px 1px 2px #999; -webkit-box-shadow:0px 1px 2px #999; box-shadow:0px 1px 2px #999;}
+.textareaWid{ background:#fff; border:solid 1px #ccc;}
+/*conter*/
+.noticeCon .noticebtn input[type="button"]{background:url(../images/btn.png) no-repeat;}
+.noticeCon .noticebtn input[type="button"].red{ background-position:-317px 0;}
+.noticeCon .noticebtn input[type="button"].orge{background-position: -155px 0;}
+.noticeCon .divStyleL,.noticeCon .divStyleR{ background: url(../images/notice/img.png) no-repeat 0 -118px;}
+/*right*/
+.noticeList li{border-bottom:solid 1px #ddd;}
+.noticeList li .top{color:#999;}
+.noticeList li .top span a{ background:url(../images/icons.png) no-repeat;}
+.noticeList li .top span .edit{ background-position:0 -600px;}
+.noticeList li .top span .del{ background-position:0 -556px;}
+.noticeList li .top span .save{ background-position:0 -640px;}
+.noticeList li .top span .cancer{ background-position:0 -680px;}
+.noticeRight .btmpage a{background:url(../images/icons.png) no-repeat;}
+.noticeRight .btmpage .left{background-position:0 -760px;}
+.noticeRight .btmpage .right{background-position:0 -720px;}
+/*----------------------------------------------------工作动态列表------------------------------------------------------*/
+.workUl li p.time{color:#999;}
+.workUl li div.redk{background:#c00; }
+.workUl li span{background: url(../images/btn.png) no-repeat 0 -98px; }
+.workUl li span a:hover.edit{background: url(../images/btn.png) no-repeat 0 -136px; color:#fff;}
+.workUl li span a:hover.del{background: url(../images/btn.png) no-repeat -63px -136px;color:#fff;}
+.workUl li.active{ background:#eee;}
+/*工作动态-展示*/			
+.worktitle p.time{color:#999;}
+.workcon{border-top:solid 2px #da0000;}
+.workPage a{background:url(../images/btn.png) no-repeat -136px -98px;}
+/*待办工作列表*/			
+.toWorkUl li{background:#eee; border-bottom:solid 1px #fff;}
+.toWorkUl li img{background:#fff; border:solid 1px #ddd;}
+.toWorkUl li p.time{ color:#999;}
+/*----------------------------------------------------通讯录------------------------------------------------------*/
+h4.orgStrIco {}
+/*list*/
+.addressBookUL li {border:solid 1px #ccc;color:#000; background:#f8f8f8 url(../images/addressBookBG.png) repeat-x center bottom ; }
+.addressBookUL li .leftPhoto {/*background:#ffd200;*/ border-left:solid 1px #fff;}
+.addressBookUL li img {border:solid 1px #ddd; }
+.addressBookUL li .info {/*background:#00b0df;*/border-right:solid 1px #fff;border-left:solid 1px #ccc;}
+.addressBookUL li .info p {background:url(../images/icons.png) no-repeat;}
+.addressBookUL li .info p.cs { background-position:0 0; }
+.addressBookUL li .info p.zw { background-position:0 -36px; }
+.addressBookUL li .info p.phone { background-position:0 -79px; }
+.addressBookUL li .info p.zPhone { background-position:0 -117px; }
+.addressBookUL li .info p.jtPhone { background-position:0 -158px; }
+.addressBookUL li .info p.address { background-position:0 -200px; }
+.addressBookUL li .info p.qq { background-position:0 -236px; }
+.addressBookUL li .info p.email { background-position:0 -274px; }
+.addressBookUL li .info p.houseNo{ background-position:0 -918px; }
+/*----------------------------------------------------设备登记------------------------------------------------------*/
+/*list*/
+.equipment { background:#fff; }
+.equipmentUL li {color:#fff; background:url(../images/equipment/bg.png) no-repeat;}
+.equipmentUL li { overflow: hidden;}
+.equipmentUL li .left{color:#000;}
+.equipmentUL li .edit, .equipmentUL li .del, .equipmentUL li .save{background:url(../images/icons.png) no-repeat;}
+.equipmentUL li .edit{ background-position:0 -320px; top:6px;}
+.equipmentUL li .save {background-position:0 -360px; top:42px;}
+.equipmentUL li .del{background-position:0 -400px; top:78px;}
+.equipmentUL li em{color:#00b0df;}
+.addBtnE{ background:url(../images/equipment/btn.png);color:#fff;-moz-box-shadow:0px 1px 2px #999; -webkit-box-shadow:0px 1px 2px #999; box-shadow:0px 1px 2px #999;}
+/*----------------------------------------------------日程表------------------------------------------------------*/
+.siD{ background:url(../images/icons.png) no-repeat 0 -838px;color:#ae0000;}
+.buM{ background:url(../images/icons.png) no-repeat 0 -878px;}
+.calendar .dateBox .pageTurning a{background:url(../images/calendar.png);}
+.calendar .dateBox .pageTurning a.PageUp{ background-position:0 -455px;}
+.calendar .dateBox .pageTurning a.PageDown{background-position:-34px -455px;}
+.calendarCon .tabelbg{ background:#ccc;}
+.calendarCon .tabelbg th{ background:url(../images/calendar.png) repeat-x 0 0; color:#fff;}
+.calendarCon .tabelbg th.blue{ background-position:0 -112px;}
+.calendarCon .tabelbg td{ background:url(../images/calendar.png) repeat-x 0 -223px; }
+.calendarCon .tabelbg td.yel{ background:url(../images/calendar.png) repeat-x 0 -334px;}
+.calendarCon .tabelbg td span .blue{ background:#9fc6e7; border:solid 1px #1587bd; color:#1d60ce;}
+.calendarCon .tabelbg td .tipsBox{background:#fff; border:solid 1px #ccc;-moz-box-shadow:0 0 5px rgba(196, 196, 196, 0.9); -webkit-box-shadow:0 0 5px rgba(196, 196, 196, 0.9); box-shadow:0 0 5px rgba(196, 196, 196, 0.9);}
+.calendarCon .tabelbg td .tip{background:url(../images/icons.png)0 -530px;}
+.calendarCon .tabelbg td p.time{ color:#999;}
+.calendarCon .tabelbg td ul li{border-bottom:solid 1px #ddd;}
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>passport</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="javascripts/jquery.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function() {
+         $.ajax({
+                     type : "POST",
+                     url : "/contacts/edit",
+                     success : function(data) {
+                             $('#result').html('<ul><li>'+data.name+'</li><li>'+data.age+'</li><li>'+data.department+'</li><li>'+data.address+'</li><li>'+data.tele+'</li></ul>');
+                     }
+                 })
+                 })
+    </script>
+  </head>
+  <body>
+  <a href="/index">返回</a>
+    <div id="result"></div>
+  </body>
+
+</html>

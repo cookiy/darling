@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>短信</title>
+    <link href="stylesheets/message.css" rel="stylesheet" type="text/css" />
+    <script src="javascripts/JQLib/jquery-1.7.2.min.js" type="text/javascript"></script>
+    <script src="javascripts/Message/message.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="menu" class="menu">
+  <div class="menu-box"> <img class="user-avatar" alt=""> <a class="current" href="contact.jsp"><span><i class="h-icons icon-txl-cur"></i>联系人</span></a> <a id="smsMenu" href="sms.jsp"><span><i class="h-icons icon-sms"></i>短信</span></a></div>
+</div>
+<div id="subMenu" class="sub-menu">
+  <div id="groupAll">
+    <ul class="group-list">
+      <li name="group_all" class="f group-item logClass b selected" groupid="-1"><a href="javascript:void(0)" class="group-name">全部[<span id="groupAllCount">276</span>]</a></li>
+    </ul>
+  </div>
+  <div id="groupBox">
+    <div class="group-scroll-box">
+      <ul id="groupList" class="group-list">
+      </ul>
+    </div>
+    <a class="scroll-top" href="javascript:void(0)" style="display: inline;"></a><a class="scroll-bottom" href="javascript:void(0)" style="display: inline;"></a>
+    <div class="group-mask"></div>
+  </div>
+  <div id="otherGroupBox">
+    <ul class="group-list">
+      <li id="groupAdd" name="group_add" class="f group-item logClass"><a href="javascript:void(0)">新建分组</a><i class="icons icon-group-add-hover"></i></li>
+    </ul>
+  </div>
+</div>
+<div id="wrapper" class="wrapper">
+  <!-- 联系人模块  -->
+  <div class="content" id="contactsList" style="display:block;">
+    <div class="btn-bar">
+      <div class="btns">
+        <table cellspacing="0" class="tb-btn">
+          <tbody>
+            <tr>
+              <td name="add_contact" id="add_contact" data="新建联系人" class="btn tool-tips logClass r"><i class="icons icon-contact-list-add"></i></td>
+              <td id="deleteContact" name="del_sel_contact" data="删除联系人" class="btn tool-tips logClass btn-group-manage"><i class="icons icon-list-del"></i></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="contacts-head-box">
+      <table cellspacing="0" class="tb-contacts-list">
+        <thead id="contactsHead">
+          <tr>
+            <th class="col1">&nbsp;</th>
+            <th class="col2"><input type="checkbox" id="checkAll" /></th>
+            <th class="col4">姓名</th>
+            <th class="col5">电话</th>
+            <th class="col6">单位</th>
+            <th class="col7">部门</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+    <div class="over-scroll" id="contactsListBox" style="height: 352px;">
+      <table  id="tab1" cellspacing="0" name="contact_select" class="tb-contacts-list logClass">
+        <colgroup>
+        <col class="col1">
+        <col class="col2">
+        <col class="col4">
+        </colgroup>
+        <tbody id="contactsBody" class="ui-selectable">
+
+        </tbody>
+      </table>
+    </div>
+    <div class="page-bar">
+      <div class="page-bar-innerbox">
+        <div class="page-size-select"> 每页显示 <span class="cbb-page-size" name="page_size">
+          <input type="text" value="50" class="cbb-text" style="width: 26px;" readonly="readonly">
+          <i class="icons icon-arrow-hot"></i></span> 条 </div>
+        <div class="page page-contact"><i class="icons icon-page-first"></i><i class="icons icon-page-prev"></i><span class="page-textarea">第
+          <input type="text" title="按回车键跳转" value="1" class="text">
+          /<span class="page-count">6</span>页</span><a title="下一页" class="icons icon-page-next" href="#"></a><a title="最后一页" class="icons icon-page-last" href="#"></a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 添加联系人模块 -->
+  <div class="contact-edit-area" id="contactEdit" style="display:none;">
+    <div class="btn-bar">
+      <div class="btns">
+        <table cellspacing="0" class="tb-btn">
+          <tbody>
+            <tr>
+              <td name="contact_edit_return" id="contact_edit_return" data="返回" class="btn tool-tips logClass r"><i class="icons icon-return"></i></td>
+              <td id="saveadduser" name="contact_edit_save" data="保存" class="btn tool-tips logClass r"><i class="icons icon-save"></i></td>
+              <!--<td name="contact_edit_save_to_next" data="保存并编辑下一个" class="btn tool-tips logClass r"><i class="icons icon-save-to-next"></i></td>-->
+              <!--<td name="del_edit_contact" data="删除联系人" class="btn tool-tips logClass btn-group-manage"><i class="icons icon-list-del"></i></td>-->
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div id="contactEditBox" class="over-scroll content" style="">
+      <form id="field" class="contact-edit-box">
+        <div class="clr"></div>
+        <h3 class="title">联系方式</h3>
+        <div class="tb-item">
+          <label class="item-th">姓名</label>
+          <table class="tb-edit">
+            <tbody>
+              <tr name="qq">
+                <td><input type="text" value="" name="X-TC-dwQQ" style="width: 250px;" class="text"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="tb-item">
+          <label class="item-th">联系方式</label>
+          <table class="tb-edit">
+            <tbody>
+              <tr name="tel">
+                <!--<th class="c-b"> <span class="combobox" name="tel">
+                    <select id="delphonenum" style="width:114px;height:28px;">
+                        <option>常用手机</option>
+                        <option>单位座机</option>
+                        <option>家庭座机</option>
+                    </select>
+                    </span>
+                </th>-->
+                <td>
+                    <div class="edit-box">
+                        <input type="text" style="width:400px;" value="13810205175" name="TEL_CELL_0" class="text tel-text">
+                        <!--<a data="删除QQ" name="delBtn" class="tool-tips icons icon-item-del logClass" href=""></a> <a data="新增QQ" name="addBtn" class="tool-tips icons icon-item-add logClass" href=""></a> -->
+                    </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="tb-item">
+          <label class="item-th">添加至分组</label>
+          <table class="tb-edit">
+            <tbody>
+              <tr>
+                <td><select class="" id="selectgroup" style="width:114px;height:28px;">
+                    <option value="未分组" selected="selected">未分组</option>
+                    <option value="教师司领导">教师司领导</option>
+                    <option value="教师司师德处">教师司师德处</option>
+                    <option value="教师司办公室">教师司办公室</option>
+                  </select></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="tb-item">
+          <label class="item-th">单位</label>
+          <table class="tb-edit">
+            <tbody>
+              <tr name="qq">
+                <td><input type="text" value="" name="X-TC-dwQQ" style="width: 250px;" class="text"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="tb-item">
+          <label class="item-th">部门</label>
+          <table class="tb-edit">
+            <tbody>
+              <tr name="qq">
+                <td><input type="text" value="" name="X-TC-dwQQ" style="width: 250px;" class="text"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 编辑联系人模块 -->
+  <div class="contact-edit-area" id="contactEditTwo" style="display:none;">
+    <div class="btn-bar">
+      <div class="btns">
+        <table cellspacing="0" class="tb-btn">
+          <tbody>
+            <tr>
+              <td name="contact_edit_return" id="contact_edit_returnTwo" title="返回" class="btn tool-tips logClass r"><i class="icons icon-return"></i></td>
+              <td id="saveedituser" name="contact_edit_save" title="保存" class="btn tool-tips logClass r"><i class="icons icon-save"></i></td>
+              <!--<td name="contact_edit_save_to_next" title="保存并编辑下一个" class="btn tool-tips logClass r"><i class="icons icon-save-to-next"></i></td>-->
+              <td id="del_edit_user" name="del_edit_contact" title="删除联系人" class="btn tool-tips logClass r"><i class="icons icon-list-del"></i></td>
+              <!--<td name="group_manage_edit" title="添加到组" hasdroped="true" class="btn tool-tips logClass btn-group-manage"><i class="icons icon-group-manage"></i></td>-->
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div id="contactEditBox" class="over-scroll content" style="">
+      <form id="field" class="contact-edit-box">
+        <input type="hidden" value="" name="X-MPS-PHOTO_" id="photoid">
+        <input type="hidden" value="" name="groupIds" id="contactEditGroupIds">
+        <h3 class="title">联系方式</h3>
+        <div class="tb-item">
+          <label class="item-th">姓名</label>
+          <table class="tb-edit">
+            <tbody>
+              <tr>
+                <td><input type="text" value="许  涛" name="X-TC-dwQQ" style="width: 250px;" class="text"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="tb-item">
+          <label class="item-th">常用手机号</label>
+          <table class="tb-edit">
+            <tbody>
+              <tr name="tel">
+<!--                <th class="c-b"> <span class="combobox" name="tel">
+                    <select id="Select1" style="width:114px;height:28px;">
+                        <option>常用手机</option>
+                        <option>单位座机</option>
+                        <option>家庭座机</option>
+                    </select>
+                  </span> </th>-->
+                <td>
+                    <div class="edit-box">
+                    <input type="text" style="width:400px;" value="13501052397" name="TEL_CELL_0" class="text tel-text">
+                    <!--<a data="删除QQ" name="delBtn" class="tool-tips icons icon-item-del logClass" href=""></a> <a data="新增QQ" name="addBtn" class="tool-tips icons icon-item-add logClass" href=""></a> -->
+                    </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="tb-item">
+          <label class="item-th">添加至分组</label>
+          <table class="tb-edit">
+            <tbody>
+              <tr>
+                <td><select class="" id="selecteditgroup" style="width:114px;height:28px;">
+                    <option value="" selected='selected' >司  长</option>
+                    <option value="">副司长</option>
+                    <option value="">办公室</option>
+                    <option value="">综合处</option>
+                    <option value="">培养处</option>
+                    <option value="">培训处</option>
+                    <option value="">教师管理处</option>
+                    <option value="">待遇保障处</option>
+                    <option value="">师德建设处</option>
+                  </select></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="tb-item">
+          <label class="item-th">单位</label>
+          <table class="tb-edit">
+            <tbody>
+              <tr name="qq">
+                <td><input type="text" value="教育部教师工作司" name="X-TC-dwQQ" style="width: 250px;" class="text"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="tb-item">
+          <label class="item-th">部门</label>
+          <table class="tb-edit">
+            <tbody>
+              <tr name="qq">
+                <td><input type="text" value="司  长" name="X-TC-dwQQ" style="width: 250px;" class="text"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 用户列表 -->
+  <div id="userListBox" class="user-list-box">
+    <ul id="uluserlist" class="user-list">
+    </ul>
+  </div>
+</div>
+  <div class="tool-tips-box" style="display: none; left: 405px; top: 43px;">
+  <div class="txt">分组管理</div>
+  <div class="a-b">
+    <div class="a"></div>
+  </div>
+</div>
+<div id="groupTipsBox" class="group-tips-box" style="display: none;"></div>
+<!-- 统一操作提示：警告框 -->
+
+<div class="ajax-tips" id="ajaxResult">1212</div>
+ <input type="hidden" id="HFVAL" />
+</body>
+</html>
+<script type="text/javascript">
+    /***************************** 载入联系人load时候的ajax请求 和 事件 begin**************************************/
+    //左侧分组的请求数据
+    var dataIds = ["type1", "type2", "type3"]
+    var dataNames = ["类型1", "类型2", "类型3"];
+    var dataNums = ["10", "20", "30"];
+    //右侧联系人的请求数据
+    var userId = ["1", "2", "3", "4", "5"];
+    var userName = ["aa", "bb", "cc", "dd", "ee"];
+    var userPhone = ["15926281933", "15926281933", "15926281933", "15926281933", "15926281933"];
+    var userCompany = ["公司1", "公司2", "公司3", "公司4", "公司5"];
+    var userDepartment = ["部门1", "部门2", "部门3", "部门4", "部门5"];
+    //编辑联系人 右侧的联系人菜单
+    var edituserId = ["1", "2", "3", "4", "5"];
+    var edituserName = ["张三1", "张三2", "张三3", "张三4", "张三5"];
+    var edituserGroup = ["1ss", "2ss", "3ss", "4ss", "5ss"];
+    var edituserPhoneNum = ["1123123", "1123123", "1123123", "1123123", "1123123"];
+    var edituserCompany = ["xx1", "xx2", "xx3", "xx4", "xx5"];
+    var edituserDepartment = ["XX1", "XX2", "XX3", "XX4", "XX5"];
+    /***************************** 载入联系人load时候的ajax请求 end****************************************/
+
+    /***************************** 载入联系人需要load的事件 ****************************************/
+    $(function () {
+        userpageload();
+        //载入分组数据
+        var temp = new createhtml();
+        for (var i = 0; i < dataNames.length; i++) {
+            temp.load(dataIds[i], dataNames[i], dataNums[i]);
+        }
+
+        //单选，全选按钮事件
+        var arrCheckAll = new Array();
+        $("#tab1 tr td input[type=checkbox][name=checkone]").each(function () {
+            arrCheckAll.push($(this));
+        })
+
+        var _ControlCheckBox = new ControlCheckBox($("#checkAll"), arrCheckAll);
+        _ControlCheckBox.CheckAll();
+        _ControlCheckBox.CheckOne();
+
+        $("#groupAdd").click(function () {
+            var temp = new createhtml();
+            temp.add();
+        })
+
+        $("#add_contact").click(function () {
+            $("#contactsList").css("display", "none");
+            $("#contactEdit").css("display", "block");
+        })
+
+        $("#contact_edit_return").click(function () {
+            $("#contactsList").css("display", "block");
+            $("#contactEdit").css("display", "none");
+        })
+
+        $("#contact_edit_returnTwo").click(function () {
+            $("#contactsList").css("display", "block");
+            $("#contactEditTwo").css("display", "none");
+            $("#userListBox").css("display", "none");
+        })
+
+        $("#deleteContact").click(function () {
+            var count = 0;
+            $("#tab1 tr td input[type=checkbox][name=checkone]").each(function () {
+                if (this.checked) {
+                    count++;
+                }
+            })
+            if (count == 0) {
+                var divdialog = new CusDialog();
+                divdialog.showdialog("请至少选择一个联系人", "checkuser");
+                return;
+            }
+            else {
+                var divdialog = new CusDialog();
+                divdialog.showdialog("确认要删除选中的联系人?", "deleteuser");
+            }
+        })
+
+        $("#saveadduser").click(function () {
+            alert("send ajax request with data {user:user}");
+        })
+
+        $("#saveedituser").click(function () {
+            alert("send ajax request with data {user:user}");
+        })
+
+        $("#del_edit_user").click(function () {
+            var divdialog = new CusDialog();
+            divdialog.showdialog("确认要删除选中的联系人?", "deletediteuser");
+        })
+    })
+</script>

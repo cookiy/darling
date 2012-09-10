@@ -1,0 +1,21 @@
+@charset "UTF-8";
+/*----------------------------------------------------通讯录------------------------------------------------------*/
+h4.orgStrIco {}
+/*list*/
+.addressBook {padding:10px;}
+.addressBookUL { padding:10px 0; }
+.addressBookUL li { padding:0 0; margin-bottom:10px; line-height:24px; overflow:hidden; position: relative;}
+.addressBookUL li .leftPhoto { float:left; width:290px;height:200px; padding:10px 0 0 10px; }
+.addressBookUL li img { float:left; width:100px; height:100px; padding:1px;}
+.addressBookUL li span { float:left; padding:0 0 0 8px; font-size:28px; line-height:50px; }
+.addressBookUL li span em { display:block; padding-left:50px; }
+.addressBookUL li .info { margin:0 0 0 301px;overflow: hidden; padding:20px 0 20px 10px;}
+.addressBookUL li .info .left, .addressBookUL li .info .right { width:49%; font-size:16px; height:170px; }
+.addressBookUL li .info .left b { width:60px; float:left; padding:2px 0; }
+.addressBookUL li .info .right b { width:94px; float:left; padding:2px 0; }
+.addressBookUL li .info p { clear:both;padding-left:30px;padding-bottom: 2px; height:32px; }
+.addressBookUL li .info .left { float:left; }
+.addressBookUL li .info .right { float:right; }
+.addressBookUL li .edit, .addressBookUL li .del, .addressBookUL li .save, .addressBookUL li .getBack { position:absolute;top:20px; overflow:hidden; }
+.addressBookUL li .edit, .addressBookUL li .save {right:66px;}
+.addressBookUL li .del, .addressBookUL li .getBack {right:20px; }

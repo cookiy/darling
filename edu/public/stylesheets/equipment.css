@@ -1,0 +1,14 @@
+@charset "UTF-8";
+/*----------------------------------------------------设备登记------------------------------------------------------*/
+/*list*/
+.equipment {padding:10px;/*-webkit-border-radius:5px;border-radius:5px; margin:0 10px;*/ }
+.equipmentUL { padding:10px 0;width:520px; margin:auto;}
+.equipmentUL li { padding:0 0 2px; margin-bottom:2px;line-height:24px; overflow:hidden; position: relative;width:520px; height:116px; }
+.equipmentUL li { overflow: hidden;}
+.equipmentUL li .left{ float:left;width:210px;text-align:center;font-size:40px; line-height:116px;}
+.equipmentUL li .right {margin:0 0 0 211px;padding:9px 47px 0 0;}
+.equipmentUL li p {height:36px;font-size:18px; }
+.equipmentUL li .edit, .equipmentUL li .del, .equipmentUL li .save{ position:absolute; width:37px; height:31px;right:0px;}
+.equipmentUL li em{position:absolute;top:0px; left:0px;display:block; width:34px; height:34px; line-height:34px;text-align:center; font-family:Arial; font-size:24px; font-style:italic; }
+.addBtnE{width:104px;height:35px; border:0;padding:2px 0px 5px; *padding:2px 0px 3px;-moz-border-radius:2px; -webkit-border-radius:2px; border-radius:2px; position:relative; cursor:pointer;font-family:"Microsoft YaHei", "黑体"; font-size:16px; text-align:center;}
+input.dateinput[type="text"]{ padding:0; width:138px;}

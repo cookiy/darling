@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OA</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="stylesheets/side_style.css" rel="stylesheet" type="text/css" />
+    <link href="stylesheets/hi_colorA.css" rel="stylesheet" type="text/css"  />
+    <link href="stylesheets/share.css" rel="stylesheet" type="text/css" />
+    <link href="stylesheets/notice.css" rel="stylesheet" type="text/css" />
+    <script src="javascripts/JQLib/jquery-1.7.2.min.js" type="text/javascript"></script>
+  </head>
+<body class="scheduleBody">
+<div class="scheduleSection" >
+  <div class="colorbg">
+    <div class="lineTop"></div>
+    <div class="addressBook">
+      <h4 class="conTop orgStrIco"><a href="#" class="icons"></a>通知</h4>
+
+      <div class="notice">
+
+        <div class="noticeLeft">
+            <a href="javascript:void(0);" class="topPage" onclick="loadUp();"></a>
+                <ul class="stday" id="ul1">
+
+                </ul>
+            <div class="noticeRelease" id="publishnotice"><span>发布通知</span></div>
+            <a href="javascript:void(0);" class="btomPage" onclick="loadDown();"></a>
+        </div>
+        <div class="noticeCon" >
+          <div class="divStyleL"></div>
+          <div class="divStyleR"></div>
+          <h2>通知</h2>
+          <div class="info" id="noticeMessage">关于教育部人文社科一般项目2012年结项情况（第二季度）工作汇报总结。</div>
+
+          <div class="btmpage">
+          <a href="javascript:void(0);" class="left" id="aclickleft">上一条</a>
+          <span><i class="color_red">5</i>/32</span>
+          <a href="javascript:void(0);" class="right" id="aclickright">下一条</a>
+          </div>
+
+          <div class="clear" style="display:none" id="divcontent">
+            <textarea class="textareaWid" style="height:120px;"></textarea>
+          </div>
+          <div class="noticebtn" style="display:none" id="divbutton">
+            <input type="button" value="" class="red" />
+            <input type="button" value="" class="orge"/>
+          </div>
+        </div>
+
+        <div class="noticeRight">
+
+        <ul id="ulright" class="noticeList">
+
+        </ul>
+
+          <div class="btmpage">
+          <a href="javascript:void(0);" class="left"></a>
+          <span><i class="color_red">5</i>/32</span>
+          <a href="javascript:void(0);" class="right"></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  <div class="clearer"></div>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+    /**************************************左侧数据加载以及事件*********************************************/
+
+    var leftData = [{ date: '7月1日', week: '星期一', count: 6 }, { date: '7月1日', week: '星期一', count: 6 }, { date: '7月1日', week: '星期一', count: 6 }, { date: '7月1日', week: '星期一', count: 6 }, { date: '7月1日', week: '星期一', count: 6}];
+
+    //载入数据
+    function loadleftData(data) {
+        var htmlleft = "";
+        for (var i = 0; i < data.length; i++) {
+            htmlleft += "<li><a href='javascript:void(0);'><span>" + data[i].date + "(" + data[i].count + "条)</span>" + data[i].week + "</a></li>";
+        }
+        $("#ul1").append($(htmlleft));
+    }
+
+    //按下向上的箭头
+    function loadUp() {
+        var leftData1 = [{ date: '7月2日', week: '星期2', count: 3 }, { date: '7月2日', week: '星期2', count: 3 }, { date: '7月2日', week: '星期2', count: 3 }, { date: '7月2日', week: '星期2', count: 3 }, { date: '7月2日', week: '星期2', count: 3}];
+        $("#ul1 li").each(function () {
+            $(this).remove();
+        })
+        loadleftData(leftData1);
+    }
+
+    //按下向下的箭头
+    function loadDown() {
+        var leftData2 = [{ date: '7月3日', week: '星期3', count: 4 }, { date: '7月4日', week: '星期4', count: 4 }, { date: '7月4日', week: '星期4', count: 2 }, { date: '7月4日', week: '星期4', count: 4 }, { date: '7月4日', week: '星期4', count: 4}];
+        $("#ul1 li").each(function () {
+            $(this).remove();
+        })
+        loadleftData(leftData2);
+    }
+
+    $("#publishnotice").click(function () {
+        $("#divcontent").css("display", "block");
+        $("#divbutton").css("display", "block");
+    })
+
+    loadleftData(leftData);
+    /**************************************左侧数据加载以及事件*********************************************/
+
+
+    /**************************************中间数据加载以及事件*********************************************/
+    $("#aclickleft").click(function () {
+        //ajax 请求获取数据源
+        $("#noticeMessage").html("Ajax请求的数据---left!!!");
+    })
+
+    $("#aclickright").click(function () {
+        //ajax 请求获取数据源
+        $("#noticeMessage").html("Ajax请求的数据---right!!!");
+    })
+
+    /**************************************右侧数据加载以及事件*********************************************/
+    var dataSource = [{ date: '7-26', week: '星期三', content: '通知日程安排。' }, { date: '7-26', week: '星期三', content: '通知日程安排。' }, { date: '7-26', week: '星期三', content: '通知日程安排。'}];
+    function LoadRightSource(data) {
+        var htmlright = "";
+        for (var i = 0; i < data.length; i++) {
+            htmlright +="<li>";
+            htmlright += "<li><div class='top'><span><a href='javascript:void(0);' title='编辑' class='edit' onclick='EditContent(this);'></a><a href='javascript:void(0);' title='删除' class='del' onclick='DelContent(this);'></a></span>" + data[i].date + " " + data[i].week + "</div>";
+            htmlright += "<textarea tag='textarea' class='textareaWid' disabled='disabled'>" + data[i].content + "</textarea>";
+            htmlright += "</li>";
+        }
+        return htmlright;
+    }
+    //编辑和保存事件  改变样式
+    function EditContent(obj) {
+        if ($(obj).attr("class") == "edit") {
+            $(obj).parent().parent().parent().children().last().removeAttr("disabled");
+            $(obj).attr("class", "save").attr("title", "保存");
+            $(obj).next().attr("class", "cancer").attr("title", "取消");
+            return;
+        }
+        if ($(obj).attr("class") == "save") {
+            //send ajax to server with data
+            var data = { date: $(obj).parent().parent().text().split(' ')[0], week: $(obj).parent().parent().text().split(' ')[1], content: $(obj).parent().parent().parent().children().last().val() };
+            //alert(data.content);
+            $(obj).parent().parent().parent().children().last().attr("disabled", "disabled");
+            $(obj).attr("class", "edit").attr("title", "编辑");
+            $(obj).next().attr("class", "del").attr("title", "删除");
+        }
+    }
+
+    //删除和取消事件
+    function DelContent(obj) {
+        if ($(obj).attr("class") == "del") {
+            $(obj).parent().parent().parent().remove();
+        }
+        if ($(obj).attr("class") == "cancer") {
+            $(obj).parent().parent().parent().children().last().val($(obj).parent().parent().parent().children().last().text());
+            $(obj).attr("class", "del").attr("title", "删除");
+            $(obj).prev().attr("class", "edit").attr("title", "编辑");
+            $(obj).parent().parent().parent().children().last().attr("disabled", "disabled");
+        }
+    }
+    $("#ulright").append($(LoadRightSource(dataSource)));
+    /**************************************右侧数据加载以及事件*********************************************/
+</script>

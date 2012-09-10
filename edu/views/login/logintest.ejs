@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>登陆页面</title>
+  </head>
+  <body>
+        <div style="background:#f30; color:#000; height:100px; width:100%;">
+          <%= error %>
+      </div>
+   <form id='signin' action='/signin' method='post' class="form-horizontal">
+        <div class='control-group'>
+          <label class='control-label'>用户名</label>
+          <div class='controls'>
+            <input class='input-xlarge' id='name' name='name' size='30' type='text' />
+          </div>
+        </div>
+        <div class='control-group'>
+          <label class='control-label' for='pass'>密码</label>
+          <div class='controls'>
+            <input class='input-xlarge' id='pass' name='pass' size='30' type='password' />
+          </div>
+        </div>
+        <div class='control-group'>
+          <label class='control-label'></label>
+          <div class='controls'>
+            <input type='submit' class='btn btn-primary btn-large' value='登录' />
+          </div>
+        </div>
+      </form>
+  </body>
+</html> 

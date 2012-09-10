@@ -1,0 +1,45 @@
+/*----------------------------------------------------工作动态列表------------------------------------------------------*/
+.font18{ font-size:18px; line-height:100%; font-family:"Microsoft YaHei", "黑体"; font-weight:normal;}
+.workUl{padding:20px 1px 10px;}
+.workUl li{position:relative; padding:10px 10px 10px 30px;}
+.workUl li p a{ font-size:30px; line-height:40px;}
+.workUl li p.time{ font-size:18px; line-height:24px;}
+.workUl li div.redk{display:none;position:absolute; top:17px; left:10px; width:10px; height:54px; }
+.workUl li span{display:none; position:absolute; top:17px; right:20px; width:126px;}
+.workUl li span a{width:63px; float:left; text-align:center; height:28px; line-height:28px;}
+.workUl li.active span{display: block;}
+.workUl li.active div{display: block;}
+/*工作动态-展示*/			
+.worktitle{ padding:20px;}		
+.worktitle h2{ text-align:center; font-size:30px; line-height:40px;}		
+.worktitle p.time{ font-size:18px; line-height:24px; text-align:right;}
+.workcon{ padding:20px 10px 0; margin:0 20px 20px;}
+.workcon p{ text-indent:2em; padding-bottom:10px;}
+.workPage{padding:20px;}
+.workPage a{display:block; width:145px; height:50px;text-indent:-999em; margin:auto;}
+.workNewBox {padding:20px 1px 10px;}
+/*待办工作列表*/			
+.toWorkUl{padding:20px 1px 10px;}
+.toWorkUl li{position:relative;padding:10px;}
+.toWorkUl li img{ width:50px; height:50px; padding:1px;float:left; margin-right:6px;}
+.toWorkUl li p.time{ font-size:18px; line-height:24px; color:#999;}
+.toWorkUl li span{position:absolute; top:17px; right:100px;}
+.toWorkUl li a.btn{line-height:18px; line-height:100%;}
+.toWorkUl li .status{position:absolute; top:6px; right:219px; width:400px;}
+.toWorkUl li .status .fb{ font-weight:bolder;}			
+.toWorkUl li .backgray{  background:#ccc;}			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			

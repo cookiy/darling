@@ -1,0 +1,48 @@
+@charset "UTF-8";
+/*--------------------------------------------body--------------------------------------------*/
+.documentsDiv { width:230px; float:left; padding-left:10px; display:none; }
+/*.documentInfo { padding:0 10px; }*/
+.documentInfo .gtasksOne, .documentInfo .gtasksTwo, .documentInfo .gtasksThree { background:#fff; padding:10px;/* -webkit-border-radius:5px; border-radius:5px;*/ }
+h4.orgStrIco{ background:url(../images/icon/le.png) no-repeat 0 0; padding-left:70px;}
+/*--------------------------*/
+#divui div.shangj { background: url(../images/group.jpg) bottom repeat-x; border:1px solid #52a452; width:80px; margin-right:50px; height: 32px; line-height: 32px; text-align:center;border-radius:3px;}
+#divui div { float: left; width:120px; margin-right:10px; }
+#divui ul li { list-style: none; }
+#divui ul { padding:40px 0 0 42px; background:url(../images/organization/shangj.png) no-repeat 30px bottom; }
+#divui li {background: url(../images/group.jpg) 0 -32px repeat-x; border:1px solid #cccccc; height: 30px; margin-bottom: 10px; line-height: 30px; cursor:pointer; text-align:center; color:#7b7b7b; padding:0; border-radius:3px; font-size:16px;}
+/*--------------------------*/
+.organization { padding:0; margin-top:10px; color:#fff; }
+.organization .leader { width:104px; font-weight:bolder; font-size:20px; margin:auto; text-align:center; padding:0 24px; height:32px; line-height:32px; background: url(../images/group.jpg) repeat-x; border:1px solid #c44742; border-radius:3px;}
+.organization .leaderTwo { width:910px; margin:auto;background:url(../images/organization/leader.png) no-repeat 40px 0; padding-top:40px; }
+.organization .leaderTwo .left, .leaderTwo .right { width:455px; float:right; font-size:18px; padding:10px 0 0; line-height:20px; }
+.organization .leaderTwo .left { float:left;}
+.organization .leaderTwo h4 { background: url(../images/group.jpg) repeat-x; border:1px solid #c44742; height:32px; line-height:32px; width:80px; text-align:center; margin:0 auto; border-radius:3px;}
+.organization .leaderTwo  h5 { background: url(../images/group.jpg) repeat-x; border:1px solid #c44742; height:32px; line-height:32px; width:80px; text-align:center;border-radius:3px;}
+.organization .leaderTwo .left h5{ float:right;margin-right:113px; }
+.organization .leaderTwo .right h5{ float:left;margin-left:113px;  }
+.organization .leaderTwo  ul { margin:0 0 0 12px; padding:0 0 0 145px; }
+.organization .leaderTwo  ul li { margin:8px 0 0; line-height:32px; height:32px; font-size:16px; width:60px;background: url(../images/group.jpg) repeat-x; border:1px solid #c44742; text-align:center; position:relative; border-radius:3px;}
+.organization .leaderTwo  ul li span{ cursor:pointer;}
+.organization .leaderTwo  .info { padding:10px; position:absolute; top:29px; left:20px; float:left; width:260px; z-index:99;background:#fff; border:solid 1px #ccc;-moz-box-shadow:0 0 5px rgba(196, 196, 196, 0.9); -webkit-box-shadow:0 0 5px rgba(196, 196, 196, 0.9); box-shadow:0 0 5px rgba(196, 196, 196, 0.9);border-radius:5px; }
+.organization .leaderTwo  .info img { padding:1px; float:left; border:solid 1px #ccc; width:40px; height:40px; background:#fff; }
+.organization .leaderTwo  .info p { margin-left:50px; text-align:left; color:#000;}
+.organization .leaderTwo  .info i { background:url(../images/icons.png) repeat scroll 0 -539px transparent; width:15px; height:8px; position:absolute; top:-8px; left:30px; }
+.organization .leaderThree { width:910px; margin:auto; height:300px; background:url(../images/organization/leader2.png) no-repeat 40px 0; padding-top:40px; }
+/*--------------------------*/
+.dateInfoTopend { }
+.allScheduleUl { background:#fff; -webkit-border-radius:5px; border-radius:5px; padding:10px; }
+.allScheduleUl li { padding:4px; margin-bottom:6px; border-bottom:dotted 1px #ccc; line-height:24px; }
+.allScheduleUl li h6 { padding-bottom:2px; text-align:left; }
+.allScheduleUl li h6 em { float:right; margin-left:20px; font-weight:normal; }
+.allScheduleUl li h6 em .red { font-weight:bolder; font-style:normal; padding:0 0 0 4px; }
+.allScheduleUl li h6 span { float:right; font-weight:normal; color:#666; }
+.allScheduleUl li p { line-height:18px; }
+.allScheduleUl li .bottom { color:#333; }
+.allScheduleUl li .bottom a { float:right; margin-left:10px; }
+.allScheduleUl li .bottom .time { }
+.allScheduleUl li .bottom { }
+.scheduleAdd { background:#fff; padding:10px; -webkit-border-radius:5px; border-radius:5px; }
+.scheduleAddTable { }
+.scheduleAddTable th { font-weight:bold; padding:4px 0; text-align:right; }
+.scheduleAddTable td { padding:4px 0 4px 4px; text-align:left; }
+.scheduleAddTable { }

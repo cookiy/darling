@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>组织结构</title>
+<link href="stylesheets/side_style.css" rel="stylesheet" type="text/css" />
+<link href="stylesheets/share.css" rel="stylesheet" type="text/css" />
+<link href="stylesheets/fileDocument.css" rel="stylesheet" type="text/css" />
+<script src="javascripts/JQLib/jquery-1.7.2.min.js" type="text/javascript"></script>
+</head>
+<body class="scheduleBody">
+<div class="scheduleSection">
+  <div class="colorbg">
+    <div class="documentInfo">
+      <div class="dateInfoTopend"></div>
+     <div id="con3" class="gtasksThree" >
+        <h4>组织结构</h4>
+        <div class="organization">
+          <div class="leader">教师工作司</div>
+          <div class="leaderTwo">
+            <h4 id="DivBlock1"><span id="d1">许涛</span>
+            </h4>
+            <div class="left" id="d2">
+              <h5>葛振江</h5>
+            </div>
+            <div class="right" id="d3">
+              <h5>葛振江</h5>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <div id="divui" class="leaderThree" style="">
+
+          </div>
+          <div id="showdiv" style="width:80px;height: 30px;background: #eee;line-height: 30px;cursor:pointer;display: none;position: absolute"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="clearer"></div>
+</div>
+    <div id="showinfo" class="info" style="display:block;position:absolute">
+
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+    var arr1 = ["办公室1", "办公室2", "办公室3", "办公室4", "办公室5", "办公室6", "办公室7"];
+    //部门里面的人   里面的id 拼接到姓名后面  比如x1_x1id
+    var arr2_1 = ["x1_x1id", "x1_x1id", "x1_x1id", "x1_x1id"];
+    var arr2_2 = ["x1_x1id", "x1_x1id", "x1_x1id", "x1_x1id"];
+    var arr2_3 = ["x1_x1id", "x1_x1id", "x1_x1id", "x1_x1id"];
+    var arr2_4 = ["x1_x1id", "x1_x1id", "x1_x1id", "x1_x1id"];
+    var arr2_5 = ["x1_x1id", "x1_x1id", "x1_x1id", "x1_x1id"];
+    var arr2_6 = ["x1_x1id", "x1_x1id", "x1_x1id", "x1_x1id", "x1_x1id"];
+    var arr2_7 = ["x1_x1id", "x1_x1id", "x1_x1id", "x1_x1id"];
+
+    var arrAll = [arr2_1, arr2_2, arr2_3, arr2_4, arr2_5, arr2_6, arr2_7];
+
+    function Loaddata() {
+        var html = "";
+        var num = 0;
+        for (var i = 0; i < arr1.length; i++) {
+            html += "<div>";
+            html += "<div tag='department' class='shangj'>" + arr1[i] + "</div>";
+            if (i == num) {
+                html += "<ul>";
+                for (var j = 0; j < arrAll[num].length; j++) {
+                    html += "<li tag='useli' id='" + arrAll[i][j].split('_')[1] + "' tag='usertag'>" + arrAll[i][j].split('_')[0] + "</li>";
+                }
+                html += "</ul>";
+            }
+            html += "</div>";
+            num++;
+        }
+        return html;
+    }
+    $("#divui").append($(Loaddata()));
+
+    $("#divui li[tag=useli]").each(function () {
+        $(this).mousemove(function (e) {
+            //send ajax request
+            var data = { name: '张三', imgurl: 'images/face.jpg', department: '教师工作司', zhiwu: '司领导', guan: '司长', phone: '13912345678', email: 'gezhenjiang@moe.cn' };
+            var posx = e.pageX;
+            var posy = e.pageY;
+            $("#showinfo").html("");
+            $("#showinfo").css("display", "block");
+            $("#showinfo").css("top", posy + 20);
+            $("#showinfo").css("left", posx + 20);
+
+            var html = "<i></i><img src='" + data.imgurl + "' /><p>" + data.name + "<br/>" + data.department + " " + data.zhiwu + " " + data.guan + "<br/>" + data.phone + "<br/>" + data.email + "</p>";
+            $("#showinfo").html(html);
+        })
+        $(this).mouseout(function () {
+            $("#showinfo").css("display", "none");
+        })
+    })
+
+    $("#divui div[tag=department]").each(function () {
+        $(this).mousemove(function (e) {
+            var posx = e.pageX;
+            var posy = e.pageY;
+            $("#showinfo").html("");
+            $("#showinfo").css("display", "block");
+            $("#showinfo").css("top", posy + 20);
+            $("#showinfo").css("left", posx + 20);
+            var data = { zhineng: '扫地', leader: '张三他爹' };
+            var html = "职能:" + data.zhineng + "<br/>领导:" + data.leader;
+            $("#showinfo").html(html);
+        })
+        $(this).mouseout(function () {
+            $("#showinfo").css("display", "none");
+        })
+    })
+
+    $("#d1").mousemove(function (e) {
+        var posx = e.pageX;
+        var posy = e.pageY;
+        $("#showinfo").html("");
+        $("#showinfo").css("display", "block");
+        $("#showinfo").css("top", posy + 20);
+        $("#showinfo").css("left", posx + 20);
+        $("#showinfo").html("<i></i><img src='images/face.jpg' /><p>许涛<br/>教师工作司 司领导 司长<br/>13912345678<br/>gezhenjiang@moe.cn</p>");
+    }).mouseout(function () {
+        $("#showinfo").css("display", "none");
+    })
+
+    $("#d2").mousemove(function (e) {
+        var posx = e.pageX;
+        var posy = e.pageY;
+        $("#showinfo").html("");
+        $("#showinfo").css("display", "block");
+        $("#showinfo").css("top", posy + 20);
+        $("#showinfo").css("left", posx + 20);
+        $("#showinfo").html("<i></i><img src='images/face.jpg' /><p>葛振江<br/>教师工作司 司领导 司长<br/>13912345678<br/>gezhenjiang@moe.cn</p>");
+    }).mouseout(function () {
+        $("#showinfo").css("display", "none");
+    })
+
+    $("#d3").mousemove(function (e) {
+        var posx = e.pageX;
+        var posy = e.pageY;
+        $("#showinfo").html("");
+        $("#showinfo").css("display", "block");
+        $("#showinfo").css("top", posy + 20);
+        $("#showinfo").css("left", posx + 20);
+        $("#showinfo").html("<i></i><img src='images/face.jpg' /><p>许涛他哥<br/>教师工作司 司领导 司长<br/>13912345678<br/>gezhenjiang@moe.cn</p>");
+    }).mouseout(function () {
+        $("#showinfo").css("display", "none");
+    })
+</script>

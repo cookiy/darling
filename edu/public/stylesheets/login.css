@@ -1,0 +1,26 @@
+@charset "UTF-8";
+/* CSS Document */
+body.loginbg{background:#122d7a url(../images/bodyIMG/1.jpg) no-repeat; overflow:hidden;}
+
+a { }
+.hide { display:none; }
+
+.login-list {margin:-145px 0 0 -270px; width:549px;height:411px;position:absolute; top:50%; left:50%; background:url(../images/login.png) no-repeat;}
+.login-list .tit { border-color:#ccc; border-bottom:#e4e4e4 1px solid; }
+.login-list .tit li { border-right:#e4e4e4 1px solid; }
+.login-list .tit li.current { border-bottom:#fff 1px solid; border-left:#e4e4e4 1px solid; background-color:#fefefe; color:#333; }
+/*----*/
+ .collection-item { font-size: 18px; padding:69px 0 0 212px; }
+.collection-item .collection-label { vertical-align: middle; display:block; line-height:1.8em; margin-top:15px; width:80px; float:left; }
+.collection-item .ipt-wraper {padding-top:19px; }
+.defaut-txt { border:1px solid #e1e4e6; border-radius:3px; -moz-border-radius:3px; -webkit-border-radius:3px; padding:2px 3px; line-height:19px; }
+.collection-label .other-info { float:right; margin-right:1em; font-size:12px; }
+/*--Color Style--*/
+.collection-gray .txt-info { color:#999; }
+.collection-gray .defaut-txt { background:none; border:0;font-size:18px; height:30px; width:254px; }
+.ipt-wraper .defaut-ipt-border { border:#fff 3px solid; border-radius:3px; display:inline-block; line-height:19px; }
+.ipt-wraper:hover .defaut-ipt-border { border:#e5f1fa 3px solid; }
+.ipt-wraper:hover .defaut-ipt-border .defaut-txt { background-color:#FFC; background-position:0 -36px; border-color:#C6C69E }
+.collection-gray .ipt-err { background-color: #FBE2E2; background-position: 0 -72px; border-color: #D28C8C; color: #A63B3B; }
+.collection-gray .info-err { display:inline-block; color:#A63B3B; }
+.collection-gray .loginBtn { background:url(../images/loginbtn.png) no-repeat; width:70px; height:37px; border:0px;text-indent:-999em;}
