@@ -1,11 +1,0 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-<meta charset="utf-8">
-<title>event时间捕获</title><script> var str = "abcdefgaddda"; var obj = {};for(var i = 0,I = str.length; i<I;i++) {	var key = str[i];	obj[key]++;}var max_key = "";var key;for(key in obj){	if(max<obj[key]){	max = obj[key];	max_key = key;	}}alert("max:"+max+"max_key:"+max_key);</script>
-</head>
-
-<body onclick="alert('body');">
-<p onclick="alert('p');"></p>
-</body>
-</html>

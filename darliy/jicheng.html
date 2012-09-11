@@ -1,9 +1,0 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-<meta charset="utf-8">
-<title>继承</title>
-<script>function Person(name,age){this.name = name;this.age = age;}function Student(){Person.call(this,name,age);}var test1 = new Person('xf',74);alert(test1.name);var arr=new Array(6,1,2,3,4,5);alert(arr.slice(2));function SuperType(name){this.color=['red','blue','green'];this.name=function(){  alert(name);}}function SunType(){SuperType.call(this);}var instance1 = new SunType();instance1.color.push('black');alert(instance1.color);var instance2 = new SuperType(jim);alert(instance2.name);var phonebook=[{name:"a",tele:"111"},{name:"b",tele:"112"},{name:"c",tele:"113"},{name:"d",tele:"114"},{name:"e",tele:"115"},{name:"f",tele:"116"},{name:"g",tele:"117"},];var phonebook1=[{name:"ab",tele:"111"},{name:"ac",tele:"112"},{name:"ad",tele:"113"},];function getTel(oPhonebook,oName){var tel="";for(var i=0; i<phonebook.length; i++){ if(oPhonebook[i].name==oName){ 	tel = oPhonebook[i].tele; 	break; }}return tel;}function addItem(oPhonebook,oName,oTel){oPhonebook.push({name:oName,tele:oTel});}function removeItem(oPhonebook,oName){	var n;	for(var i=0; i<oPhonebook.length;i++){		if(oPhonebok[i].name == oName){		n=i;break;	}}if(n!=undefined){	oPhonebook.splice(n,1);}}var str=getTel(phonebook,"ab");alert(str);</script><body>
-
-</body>
-</html>
